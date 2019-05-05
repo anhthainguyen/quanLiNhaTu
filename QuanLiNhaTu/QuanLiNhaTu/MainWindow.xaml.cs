@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using QuanLiNhaTu.ViewModels;
 
 namespace QuanLiNhaTu
 {
@@ -23,6 +24,7 @@ namespace QuanLiNhaTu
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new CustomerViewModel();
         }
     }
 }

@@ -15,8 +15,15 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
-        <materialDesign:Card Padding="32" Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="385*"/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Padding="32" Margin="16,16,16,0" Grid.RowSpan="2">
             <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
         </materialDesign:Card>
+        <Label Margin="16,161,648,191" Grid.Row="1">Customer name:</Label>
+        <TextBox Margin="149,134,363,196" Text="{Binding Customer.Name, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" />
+        <Button Margin="478,157,154,191" Click="{Binding UpdateCommand}" Grid.Row="1" Height="Auto">Update</Button>
     </Grid>
 </Window>
