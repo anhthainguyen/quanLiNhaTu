@@ -61,8 +61,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\CaiTao.xaml.cs">
+      <DependentUpon>CaiTao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CapDuong.xaml.cs">
+      <DependentUpon>CapDuong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DangNhap.xaml.cs">
+      <DependentUpon>DangNhap.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DoiMatKhau.xaml.cs">
       <DependentUpon>DoiMatKhau.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManHinhChinh.xaml.cs">
+      <DependentUpon>ManHinhChinh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanGiao.xaml.cs">
+      <DependentUpon>QuanGiao.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanLy.xaml.cs">
+      <DependentUpon>QuanLy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThanNhan.xaml.cs">
+      <DependentUpon>ThanNhan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TiepNhanPhongTich.xaml.cs">
+      <DependentUpon>TiepNhanPhongTich.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\YTe.xaml.cs">
+      <DependentUpon>YTe.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -76,7 +103,43 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CaiTao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CapDuong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DangNhap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DoiMatKhau.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManHinhChinh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QuanGiao.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QuanLy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThanNhan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TiepNhanPhongTich.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\YTe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
