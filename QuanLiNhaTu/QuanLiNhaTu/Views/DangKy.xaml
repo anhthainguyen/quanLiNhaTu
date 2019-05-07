@@ -10,12 +10,12 @@
         <Label Content="ĐĂNG KÝ" HorizontalAlignment="Left" Margin="350,23,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="340,75,0,0" TextWrapping="Wrap" Text="Mã nhân viên" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="340,119,0,0" TextWrapping="Wrap" Text="Mật khẩu" VerticalAlignment="Top" Width="120"/>
-        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="345,165,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="345,198,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="345,229,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="345,262,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="345,291,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="345,324,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Cán bộ quản giáo" HorizontalAlignment="Left" Margin="341,165,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Bộ phận y tế" HorizontalAlignment="Left" Margin="341,198,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Bộ phận tiếp nhận và phóng tích tù nhân" HorizontalAlignment="Left" Margin="341,229,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Bộ phận cấp dưỡng" HorizontalAlignment="Left" Margin="341,262,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Bộ phận Quản lý" HorizontalAlignment="Left" Margin="341,291,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Bộ phận cải tạo" HorizontalAlignment="Left" Margin="341,324,0,0" VerticalAlignment="Top"/>
         <Button Content="Đăng ký" HorizontalAlignment="Left" Margin="235,363,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
         <Button Content="Thoát" HorizontalAlignment="Left" Margin="420,363,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
 
