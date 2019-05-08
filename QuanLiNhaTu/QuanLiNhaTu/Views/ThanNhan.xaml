@@ -1,0 +1,29 @@
+﻿<Window x:Class="QuanLiNhaTu.Views.ThanNhan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLiNhaTu.Views"
+        mc:Ignorable="d"
+        Title="ThanNhan" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="144,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="144,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <Label Content="Họ tên" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ngày sinh" HorizontalAlignment="Left" Margin="25,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Giới tính" HorizontalAlignment="Left" Margin="25,103,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="144,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <Label Content="Ngày vào" HorizontalAlignment="Left" Margin="430,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ngày ra" HorizontalAlignment="Left" Margin="430,59,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tính trạng sức khỏe" HorizontalAlignment="Left" Margin="25,156,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="552,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <Label Content="Ngày thăm nuôi" HorizontalAlignment="Left" Margin="430,98,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mức độ cải tạo" HorizontalAlignment="Left" Margin="433,151,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="145,65,0,0" VerticalAlignment="Top" Width="190"/>
+        <DatePicker HorizontalAlignment="Left" Margin="550,21,0,0" VerticalAlignment="Top" Width="190"/>
+        <DatePicker HorizontalAlignment="Left" Margin="550,61,0,0" VerticalAlignment="Top" Width="190"/>
+        <DatePicker HorizontalAlignment="Left" Margin="550,100,0,0" VerticalAlignment="Top" Width="190"/>
+        <Button Content="Thoát" HorizontalAlignment="Left" Margin="665,375,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
+
+    </Grid>
+</Window>

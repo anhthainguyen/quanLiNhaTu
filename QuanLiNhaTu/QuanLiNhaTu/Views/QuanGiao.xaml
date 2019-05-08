@@ -1,0 +1,19 @@
+﻿<Window x:Class="QuanLiNhaTu.Views.QuanGiao"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLiNhaTu.Views"
+        mc:Ignorable="d"
+        Title="QuanGiao" Height="450" Width="800">
+    <Grid>
+        <ComboBox HorizontalAlignment="Left" Margin="375,28,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Mức độ phảm tội" HorizontalAlignment="Left" Margin="255,30,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="655,27,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Tình trạng sức khỏe" HorizontalAlignment="Left" Margin="520,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nguyễn Văn A" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button Content="Thoát" HorizontalAlignment="Left" Margin="665,375,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
+        <DataGrid HorizontalAlignment="Left" Height="290" Margin="15,70,0,0" VerticalAlignment="Top" Width="750"/>
+
+    </Grid>
+</Window>
