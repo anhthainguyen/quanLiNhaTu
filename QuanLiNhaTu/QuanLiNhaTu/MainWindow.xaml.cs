@@ -23,7 +23,7 @@ namespace QuanLiNhaTu
         public MainWindow()
         {
             InitializeComponent();
-            LoginWindow login= new LoginWindow();
+            LoginWindow login = new LoginWindow();
             login.ShowDialog();
         }
     }
