@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLiNhaTu.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,17 @@ namespace QuanLiNhaTu
         public LoginWindow()
         {
             InitializeComponent();
+        }
+
+        private void dangNhap_Click(object sender, RoutedEventArgs e)
+        {
+            ManHinhChinh manHinh = new ManHinhChinh();
+            manHinh.ShowDialog();
+        }
+
+        private void thoat_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

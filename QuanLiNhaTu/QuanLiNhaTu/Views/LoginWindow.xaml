@@ -3,10 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QuanLiNhaTu"
+        xmlns:local="clr-namespace:QuanLiNhaTu.Views"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-       
         Title="LoginWindow" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Rectangle Height="280" VerticalAlignment="Top">
@@ -31,8 +30,8 @@
                 <PasswordBox materialDesign:HintAssist.Hint="Mật khẩu" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontFamily="champagne;limouses" FontSize="18"/>
             </StackPanel>
         </Grid>
-        <Button VerticalAlignment="Bottom" Margin="43,0,184,85" Content="ĐĂNG NHẬP" Background="#FF2281D1"/>
-        <Button VerticalAlignment="Bottom" Margin="179,0,42,85" Content="THOÁT" Background="#FF2281D1"/>
+        <Button VerticalAlignment="Bottom" Margin="43,0,184,85" Content="ĐĂNG NHẬP" Background="#FF2281D1" Click="dangNhap_Click" />
+        <Button VerticalAlignment="Bottom" Margin="179,0,42,85" Content="THOÁT" Background="#FF2281D1" Click="thoat_Click"/>
         <TextBlock Text="THAY ĐỔI MẬT KHẨU" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="50" Foreground="Gray" Cursor="Hand"/>
     </Grid>
 </Window>
