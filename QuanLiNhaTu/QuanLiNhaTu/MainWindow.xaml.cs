@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLiNhaTu.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace QuanLiNhaTu
             InitializeComponent();
             LoginWindow login = new LoginWindow();
             login.ShowDialog();
+            this.Close();
         }
     }
 }
