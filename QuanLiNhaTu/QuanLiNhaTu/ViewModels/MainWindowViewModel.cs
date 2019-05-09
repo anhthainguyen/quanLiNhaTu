@@ -11,7 +11,7 @@ namespace QuanLiNhaTu.ViewModels
     {
         public MainWindowViewModel()
         {
-            MessageBox.Show("Da vao MainWindowViewModel");
+            //Cac xu ly chung nam tai day
         }
     }
 }
