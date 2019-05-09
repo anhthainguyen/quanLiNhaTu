@@ -1,4 +1,5 @@
-﻿using QuanLiNhaTu.Views;
+﻿using QuanLiNhaTu.ViewModels;
+using QuanLiNhaTu.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,20 +21,11 @@ namespace QuanLiNhaTu
     /// </summary>
     public partial class LoginWindow : Window
     {
+        public LoginWindowViewModel Viewmodel { get; set; }
         public LoginWindow()
         {
             InitializeComponent();
-        }
-
-        private void dangNhap_Click(object sender, RoutedEventArgs e)
-        {
-            ManHinhChinh manHinh = new ManHinhChinh();
-            manHinh.ShowDialog();
-        }
-
-        private void thoat_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+            this.DataContext = Viewmodel = new LoginWindowViewModel();
         }
     }
 }
