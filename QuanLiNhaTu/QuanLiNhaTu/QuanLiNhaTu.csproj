@@ -70,6 +70,54 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BO_PHAN.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAN_BO.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAU_HINH.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CA_TRUC.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONG_VIEC.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DOT_KHAM_BENH.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KHEN_THUONG.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NANG_KHIEU.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiNhaTu.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLiNhaTu.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiNhaTu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiNhaTu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLiNhaTu.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="THAN_NHAN.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TU_NHAN.cs">
+      <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\LoginWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -87,54 +135,6 @@
     </Compile>
     <Compile Include="Views\DangKy.xaml.cs">
       <DependentUpon>DangKy.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BO_PHAN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CAN_BO.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CAU_HINH.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CA_TRUC.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CONG_VIEC.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DOT_KHAM_BENH.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KHEN_THUONG.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NANG_KHIEU.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\THAN_NHAN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TU_NHAN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Views\DoiMatKhau.xaml.cs">
       <DependentUpon>DoiMatKhau.xaml</DependentUpon>
@@ -240,38 +240,42 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <EntityDeploy Include="QuanLiNhaTu.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLiNhaTu.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="QuanLiNhaTu.edmx.diagram">
+      <DependentUpon>QuanLiNhaTu.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="QuanLiNhaTu.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>QuanLiNhaTu.edmx</DependentUpon>
+      <LastGenOutput>QuanLiNhaTu.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="QuanLiNhaTu.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>QuanLiNhaTu.edmx</DependentUpon>
+      <LastGenOutput>QuanLiNhaTu.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Picture\home.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

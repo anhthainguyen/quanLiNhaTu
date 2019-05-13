@@ -43,7 +43,6 @@
           <Property Name="SDT" Type="nvarchar" MaxLength="20" />
           <Property Name="Ngay_Sinh" Type="date" />
           <Property Name="Mat_Khau" Type="nvarchar(max)" />
-          <Property Name="Cong_Viec" Type="nvarchar(max)" />
           <Property Name="Ma_BP" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="CAN_BO_CONG_VIEC">
@@ -442,10 +441,9 @@
           <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Ngay_Sinh" Type="DateTime" Precision="0" />
           <Property Name="Mat_Khau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Cong_Viec" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Ma_BP" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BO_PHAN" Relationship="Self.FK__CAN_BO__Ma_BP__286302EC" FromRole="CAN_BO" ToRole="BO_PHAN" />
-          <NavigationProperty Name="CONG_VIEC1" Relationship="Self.CAN_BO_CONG_VIEC" FromRole="CAN_BO" ToRole="CONG_VIEC" />
+          <NavigationProperty Name="CONG_VIEC" Relationship="Self.CAN_BO_CONG_VIEC" FromRole="CAN_BO" ToRole="CONG_VIEC" />
           <NavigationProperty Name="DOT_KHAM_BENH" Relationship="Self.CAN_BO_DOT_KHAM_BENH" FromRole="CAN_BO" ToRole="DOT_KHAM_BENH" />
         </EntityType>
         <EntityType Name="CAU_HINH">
@@ -581,7 +579,7 @@
           <End Role="NANG_KHIEU" Type="Self.NANG_KHIEU" Multiplicity="*" />
           <End Role="TU_NHAN" Type="Self.TU_NHAN" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="QUAN_LI_NHA_TU_Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QUAN_LI_NHA_TUEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BO_PHAN" EntityType="Self.BO_PHAN" />
           <EntitySet Name="CA_TRUC" EntityType="Self.CA_TRUC" />
           <EntitySet Name="CAN_BO" EntityType="Self.CAN_BO" />
@@ -631,7 +629,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QUAN_LI_NHA_TUModelStoreContainer" CdmEntityContainer="QUAN_LI_NHA_TU_Entities">
+        <EntityContainerMapping StorageEntityContainer="QUAN_LI_NHA_TUModelStoreContainer" CdmEntityContainer="QUAN_LI_NHA_TUEntities">
           <EntitySetMapping Name="BO_PHAN">
             <EntityTypeMapping TypeName="QUAN_LI_NHA_TUModel.BO_PHAN">
               <MappingFragment StoreEntitySet="BO_PHAN">
@@ -657,7 +655,6 @@
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="Ngay_Sinh" ColumnName="Ngay_Sinh" />
                 <ScalarProperty Name="Mat_Khau" ColumnName="Mat_Khau" />
-                <ScalarProperty Name="Cong_Viec" ColumnName="Cong_Viec" />
                 <ScalarProperty Name="Ma_BP" ColumnName="Ma_BP" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLiNhaTu.Models
+namespace QuanLiNhaTu
 {
     using System;
     using System.Collections.Generic;

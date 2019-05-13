@@ -7,17 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLiNhaTu.Models
+namespace QuanLiNhaTu
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class KHEN_THUONG
+    public partial class CAU_HINH
     {
-        public int Ma_KT { get; set; }
-        public string Ten_KT { get; set; }
-        public string Ma_Tu_N { get; set; }
-    
-        public virtual TU_NHAN TU_NHAN { get; set; }
+        public int Ma_CH { get; set; }
+        public string Ten_CH { get; set; }
+        public Nullable<int> Gia_Tri { get; set; }
     }
 }
