@@ -118,6 +118,9 @@
     <Compile Include="TU_NHAN.cs">
       <DependentUpon>QuanLiNhaTu.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControlQLNT\ControlBarUC.xaml.cs">
+      <DependentUpon>ControlBarUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\LoginWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -140,6 +143,10 @@
       <DependentUpon>DoiMatKhau.xaml</DependentUpon>
     </Compile>
     <Page Include="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlQLNT\ControlBarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
