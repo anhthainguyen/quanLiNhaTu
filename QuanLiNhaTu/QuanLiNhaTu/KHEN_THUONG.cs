@@ -7,17 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLiNhaTu.Models
+namespace QuanLiNhaTu
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class KHEN_THUONG
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int Ma_KT { get; set; }
+        public string Ten_KT { get; set; }
+        public string Ma_Tu_N { get; set; }
+    
+        public virtual TU_NHAN TU_NHAN { get; set; }
     }
 }

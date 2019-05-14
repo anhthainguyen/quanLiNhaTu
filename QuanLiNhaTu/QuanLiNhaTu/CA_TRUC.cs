@@ -7,26 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLiNhaTu.Models
+namespace QuanLiNhaTu
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class THAN_NHAN
+    public partial class CA_TRUC
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public THAN_NHAN()
+        public CA_TRUC()
         {
-            this.TU_NHAN = new HashSet<TU_NHAN>();
+            this.BO_PHAN = new HashSet<BO_PHAN>();
         }
     
-        public string Ma_Than_N { get; set; }
-        public string Ho_Ten { get; set; }
-        public string Gioi_Tinh { get; set; }
-        public Nullable<System.DateTime> Ngay_Sinh { get; set; }
-        public string SDT { get; set; }
+        public int Ngay_Trong_Tuan { get; set; }
+        public System.TimeSpan Bat_Dau { get; set; }
+        public System.TimeSpan Ket_Thuc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TU_NHAN> TU_NHAN { get; set; }
+        public virtual ICollection<BO_PHAN> BO_PHAN { get; set; }
     }
 }

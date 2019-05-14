@@ -7,24 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLiNhaTu.Models
+namespace QuanLiNhaTu
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CA_TRUC
+    public partial class BO_PHAN
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CA_TRUC()
+        public BO_PHAN()
         {
-            this.BO_PHAN = new HashSet<BO_PHAN>();
+            this.CAN_BO = new HashSet<CAN_BO>();
+            this.CA_TRUC = new HashSet<CA_TRUC>();
         }
     
-        public int Ngay_Trong_Tuan { get; set; }
-        public System.TimeSpan Bat_Dau { get; set; }
-        public System.TimeSpan Ket_Thuc { get; set; }
+        public string Ma_BP { get; set; }
+        public string Ten_BP { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BO_PHAN> BO_PHAN { get; set; }
+        public virtual ICollection<CAN_BO> CAN_BO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CA_TRUC> CA_TRUC { get; set; }
     }
 }

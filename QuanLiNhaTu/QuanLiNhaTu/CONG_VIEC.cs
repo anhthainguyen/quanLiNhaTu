@@ -7,25 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLiNhaTu.Models
+namespace QuanLiNhaTu
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DOT_KHAM_BENH
+    public partial class CONG_VIEC
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DOT_KHAM_BENH()
+        public CONG_VIEC()
         {
             this.CAN_BO = new HashSet<CAN_BO>();
-            this.TU_NHAN = new HashSet<TU_NHAN>();
         }
     
-        public System.DateTime Ngay_KB { get; set; }
+        public string Ma_CV { get; set; }
+        public string Ten_CV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CAN_BO> CAN_BO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TU_NHAN> TU_NHAN { get; set; }
     }
 }

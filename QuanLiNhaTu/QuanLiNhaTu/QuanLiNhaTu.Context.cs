@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuanLiNhaTu.Models
+namespace QuanLiNhaTu
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QUAN_LI_NHA_TU_Entities : DbContext
+    public partial class QUAN_LI_NHA_TUEntities : DbContext
     {
-        public QUAN_LI_NHA_TU_Entities()
-            : base("name=QUAN_LI_NHA_TU_Entities")
+        public QUAN_LI_NHA_TUEntities()
+            : base("name=QUAN_LI_NHA_TUEntities")
         {
         }
     
