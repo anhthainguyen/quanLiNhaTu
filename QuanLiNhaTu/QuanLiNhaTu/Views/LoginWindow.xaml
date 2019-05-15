@@ -32,7 +32,7 @@
             </StackPanel>
         </Grid>
         <Button VerticalAlignment="Bottom" Margin="43,0,184,85" Content="ĐĂNG NHẬP" Background="#FF2281D1"
-                Command="{Binding OpenHomeWindowCommand}"/>
+                Command="{Binding QuanGiaoWindowCommand}" />
         <Button VerticalAlignment="Bottom" Margin="179,0,42,85" Content="THOÁT" Background="#FF2281D1"
                 Command="{Binding CloseWindowCommand}"
                 CommandParameter="{Binding ElementName=loginWindow}"/>

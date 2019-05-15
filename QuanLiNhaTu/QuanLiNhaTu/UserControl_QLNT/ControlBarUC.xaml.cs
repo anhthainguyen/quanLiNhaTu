@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLiNhaTu.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace QuanLiNhaTu.UserControl_QLNT
     /// </summary>
     public partial class ControlBarUC : UserControl
     {
+        public ControlBarViewModel Viewmodel { get; set; }
         public ControlBarUC()
         {
             InitializeComponent();
+            this.DataContext = Viewmodel = new ControlBarViewModel();
         }
     }
 }
