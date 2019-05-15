@@ -13,16 +13,17 @@ namespace QuanLiNhaTu.ViewModels
     {
         #region commands
         public ICommand CloseWindowCommand { get; set; }
-        public ICommand OpenHomeWindowCommand { get; set; }
+        public ICommand QuanGiaoWindowCommand { get; set; }
         #endregion
 
         public LoginWindowViewModel()
         {
             CloseWindowCommand = new RelayCommand<Window>((p) => { return p == null? false : true; }, (p) => { p.Close(); });
-            OpenHomeWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            QuanGiaoWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+
             {
-                ManHinhChinh manHinh = new ManHinhChinh();
-                manHinh.ShowDialog();
+                QuanGiao qg = new QuanGiao();
+                qg.ShowDialog();
             });
         }
 

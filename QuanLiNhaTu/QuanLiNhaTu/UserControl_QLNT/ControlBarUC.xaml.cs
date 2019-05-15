@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLiNhaTu.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,23 +11,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QuanLiNhaTu.Views
+namespace QuanLiNhaTu.UserControl_QLNT
 {
     /// <summary>
-    /// Interaction logic for QuanGiao.xaml
+    /// Interaction logic for ControlBarUC.xaml
     /// </summary>
-    public partial class QuanGiao : Window
+    public partial class ControlBarUC : UserControl
     {
-        public QuanGiao()
+        public ControlBarViewModel Viewmodel { get; set; }
+        public ControlBarUC()
         {
             InitializeComponent();
-        }
-
-        private void ControlBarUC_Loaded(object sender, RoutedEventArgs e)
-        {
-
+            this.DataContext = Viewmodel = new ControlBarViewModel();
         }
     }
 }

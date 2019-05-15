@@ -4,16 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLiNhaTu.Views"
+        xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
         mc:Ignorable="d"
-        Title="QuanGiao" Height="450" Width="800">
+        ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="375,28,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Mức độ phảm tội" HorizontalAlignment="Left" Margin="255,30,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="655,27,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Tình trạng sức khỏe" HorizontalAlignment="Left" Margin="520,30,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nguyễn Văn A" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Button Content="Thoát" HorizontalAlignment="Left" Margin="665,375,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
-        <DataGrid HorizontalAlignment="Left" Height="290" Margin="15,70,0,0" VerticalAlignment="Top" Width="750"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Loaded="ControlBarUC_Loaded"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ComboBox HorizontalAlignment="Left" Margin="375,28,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Mức độ phảm tội" HorizontalAlignment="Left" Margin="255,30,0,0" VerticalAlignment="Top"/>
+            <ComboBox HorizontalAlignment="Left" Margin="655,27,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Tình trạng sức khỏe" HorizontalAlignment="Left" Margin="520,30,0,0" VerticalAlignment="Top"/>
+            <Label Content="Nguyễn Văn A" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <Button Content="Thoát" HorizontalAlignment="Left" Margin="665,375,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
+            <DataGrid HorizontalAlignment="Left" Height="290" Margin="15,70,0,0" VerticalAlignment="Top" Width="750"/>
+        </Grid>
     </Grid>
 </Window>
