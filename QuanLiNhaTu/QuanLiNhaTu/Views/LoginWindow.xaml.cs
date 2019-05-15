@@ -27,5 +27,15 @@ namespace QuanLiNhaTu
             InitializeComponent();
             this.DataContext = Viewmodel = new LoginWindowViewModel();
         }
+
+        private void LoginWindow_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
+        
     }
 }
