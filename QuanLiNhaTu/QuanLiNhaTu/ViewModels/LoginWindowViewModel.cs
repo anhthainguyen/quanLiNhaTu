@@ -14,6 +14,7 @@ namespace QuanLiNhaTu.ViewModels
         #region commands
         public ICommand CloseWindowCommand { get; set; }
         public ICommand QuanGiaoWindowCommand { get; set; }
+        public ICommand ChangePasswordWindowCommand { get; set; }
         #endregion
 
         public LoginWindowViewModel()
@@ -24,6 +25,13 @@ namespace QuanLiNhaTu.ViewModels
             {
                 QuanGiao qg = new QuanGiao();
                 qg.ShowDialog();
+          
+            });
+            ChangePasswordWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+
+            {
+                DoiMatKhau change = new DoiMatKhau();
+                change.ShowDialog();
             });
         }
 

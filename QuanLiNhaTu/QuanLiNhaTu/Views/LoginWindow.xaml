@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="LoginWindow" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        MouseMove="LoginWindow_MouseMove"
         Name="loginWindow">
+
     <Grid>
         <Rectangle Height="280" VerticalAlignment="Top">
             <Rectangle.Fill>
@@ -32,11 +34,13 @@
             </StackPanel>
         </Grid>
         <Button VerticalAlignment="Bottom" Margin="43,0,184,85" Content="ĐĂNG NHẬP" Background="#FF2281D1"
-                Command="{Binding QuanGiaoWindowCommand}" />
+                Command="{Binding QuanGiaoWindowCommand}"  />
         <Button VerticalAlignment="Bottom" Margin="179,0,42,85" Content="THOÁT" Background="#FF2281D1"
                 Command="{Binding CloseWindowCommand}"
                 CommandParameter="{Binding ElementName=loginWindow}"/>
-        <TextBlock Text="THAY ĐỔI MẬT KHẨU" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="50" Foreground="Gray" Cursor="Hand"/>
+        <Button Content="THAY ĐỔI MẬT KHẨU" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Foreground="Gray" Cursor="Hand" Background="Transparent" BorderBrush="Transparent" Margin="87,0,93,46"
+                 Command="{Binding ChangePasswordWindowCommand}"
+                CommandParameter="{Binding ElementName=loginWindow}"/>
     </Grid>
 </Window>
 
