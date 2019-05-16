@@ -23,10 +23,5 @@ namespace QuanLiNhaTu.Views
         {
             InitializeComponent();
         }
-
-        private void ControlBarUC_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
