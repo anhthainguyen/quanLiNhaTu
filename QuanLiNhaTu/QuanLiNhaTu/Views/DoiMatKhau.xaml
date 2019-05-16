@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLiNhaTu.Views"
         xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         ResizeMode="NoResize" WindowStyle="None"
         Title="DoiMatKhau" Height="450" Width="800">
@@ -12,17 +13,48 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <uc:ControlBarUC></uc:ControlBarUC>
         </Grid>
         <Grid Grid.Row="1">
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="335,110,0,0" TextWrapping="Wrap" Text="Mật khẩu hiện tại" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="335,155,0,0" TextWrapping="Wrap" Text="Mật khẩu mới" VerticalAlignment="Top" Width="120"/>
-            <Button Content="Cập nhật" Background="#FF2281D1" HorizontalAlignment="Left" Margin="240,267,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
-            <Button Content="Thoát" Background="#FF2281D1" HorizontalAlignment="Left" Margin="449,269,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
-        <Label Content="ĐỔI MẬT KHẨU" HorizontalAlignment="Left" Margin="318,43,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="335,203,0,0" TextWrapping="Wrap" Text="Nhập lại mật khẩu" VerticalAlignment="Top" Width="120"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" VerticalAlignment="Center" Margin="30,0,30,0">
+                <PasswordBox materialDesign:HintAssist.Hint="Tên đăng nhập" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontFamily="champagne;limouses" FontSize="18"/>
+            </Grid>
+            <Grid Grid.Column="1" VerticalAlignment="Center" Margin="30,0,30,0">
+                <PasswordBox materialDesign:HintAssist.Hint="Mật khẩu mới" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontFamily="champagne;limouses" FontSize="18"/>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="30,0,30,0" VerticalAlignment="center">
+                <PasswordBox materialDesign:HintAssist.Hint="Mật khẩu cũ"  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontFamily="champagne;limouses" FontSize="18"/>
+            </Grid>
+            <Grid Grid.Column="1" Margin="30,0,30,0">
+                <PasswordBox VerticalAlignment="Center" materialDesign:HintAssist.Hint="Xác nhận mật khẩu mới" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontFamily="champagne;limouses" FontSize="18"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0" HorizontalAlignment="right">
+                <Button Content="Cập nhật" Background="#FF2281D1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="32"/>
+            </Grid>
+            <Grid Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0" HorizontalAlignment="Left">
+                <Button Content="Thoát" Background="#FF2281D1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="32"/>
+            </Grid>            
         </Grid>
     </Grid>
 </Window>
