@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:QuanLiNhaTu.Views"
         xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
         mc:Ignorable="d"
+        Title="QUẢN GIÁO"
+        Name="quanGiao"
         ResizeMode="NoResize" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
@@ -13,7 +15,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:ControlBarUC Loaded="ControlBarUC_Loaded"/>
+            <uc:ControlBarUC Tag="{Binding Title, ElementName= quanGiao}"/>
         </Grid>
         <Grid Grid.Row="1">
             <ComboBox HorizontalAlignment="Left" Margin="375,28,0,0" VerticalAlignment="Top" Width="120"/>
