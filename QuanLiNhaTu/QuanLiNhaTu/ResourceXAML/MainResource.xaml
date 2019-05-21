@@ -3,4 +3,5 @@
                     xmlns:local="clr-namespace:QuanLiNhaTu.ResourceXAML"
                     xmlns:viewmodel="clr-namespace:QuanLiNhaTu.ViewModels">
     <viewmodel:MainWindowViewModel x:Key="MainVM"></viewmodel:MainWindowViewModel>
+    <viewmodel:LoginWindowViewModel x:Key="LoginVM"></viewmodel:LoginWindowViewModel>
 </ResourceDictionary>

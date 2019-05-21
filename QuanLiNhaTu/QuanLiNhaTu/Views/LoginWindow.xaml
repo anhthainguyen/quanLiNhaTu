@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLiNhaTu.Views"
         mc:Ignorable="d"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="LoginWindow" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
         MouseMove="LoginWindow_MouseMove"
-        Name="loginWindow">
-
+        Name="loginWindow"
+        DataContext="{StaticResource LoginVM}">
     <Grid>
         <Rectangle Height="280" VerticalAlignment="Top">
             <Rectangle.Fill>
@@ -29,12 +30,28 @@
         <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,100">
             <TextBlock Text="ĐĂNG NHẬP" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18"/>
             <StackPanel VerticalAlignment="Center" Margin="10">
-                <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10"  FontFamily="champagne &amp;limouses" FontSize="18"/>
-                <PasswordBox materialDesign:HintAssist.Hint="Mật khẩu" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontFamily="champagne;limouses" FontSize="18"/>
+                <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập"
+                         Text="{Binding UserName}"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Margin="0,10"
+                         FontFamily="champagne &amp;limouses"
+                         FontSize="18"/>
+                <PasswordBox x:Name="LoginPassword"
+                             materialDesign:HintAssist.Hint="Mật khẩu"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                             Margin="0,10" FontFamily="champagne;limouses" FontSize="18">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged">
+                            <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" 
+                                   CommandParameter="{Binding ElementName=LoginPassword}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </PasswordBox>
             </StackPanel>
         </Grid>
         <Button VerticalAlignment="Bottom" Margin="43,0,184,85" Content="ĐĂNG NHẬP" Background="#FF2281D1"
-                Command="{Binding QuanGiaoWindowCommand}"  />
+                Command="{Binding LoginCommand}"
+                CommandParameter="{Binding ElementName=loginWindow}"/>
         <Button VerticalAlignment="Bottom" Margin="179,0,42,85" Content="THOÁT" Background="#FF2281D1"
                 Command="{Binding CloseWindowCommand}"
                 CommandParameter="{Binding ElementName=loginWindow}"/>
