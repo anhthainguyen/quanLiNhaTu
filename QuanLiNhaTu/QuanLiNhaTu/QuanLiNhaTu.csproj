@@ -91,6 +91,7 @@
     <Compile Include="Models\CONG_VIEC.cs">
       <DependentUpon>Model_QLNT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider.cs" />
     <Compile Include="Models\DOT_KHAM_BENH.cs">
       <DependentUpon>Model_QLNT.tt</DependentUpon>
     </Compile>
@@ -323,7 +324,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Model_QLNT.Context.tt">

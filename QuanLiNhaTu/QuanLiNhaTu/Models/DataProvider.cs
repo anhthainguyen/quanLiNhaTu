@@ -22,7 +22,7 @@ namespace QuanLiNhaTu.Models
             }
         }
 
-        public QUAN_LI_NHA_TU_Entities1　DB { get; set; }
+        public QUAN_LI_NHA_TU_Entities1 DB { get; set; }
 
         private DataProvider()
         {
