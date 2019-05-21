@@ -11,6 +11,8 @@ namespace QuanLiNhaTu.ViewModels
     {
         public MainWindowViewModel()
         {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.ShowDialog();
             //Cac xu ly chung nam tai day
         }
     }
