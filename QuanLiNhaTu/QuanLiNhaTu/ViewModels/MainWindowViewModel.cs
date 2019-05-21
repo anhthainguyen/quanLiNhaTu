@@ -4,16 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace QuanLiNhaTu.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
+        public bool Isloaded = false;
+        public ICommand LoadedWindowCommand { get; set; }
         public MainWindowViewModel()
         {
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.ShowDialog();
-            //Cac xu ly chung nam tai day
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
+                Isloaded = true;
+                if (p == null)
+                    return;
+            }
+              );
         }
     }
 }

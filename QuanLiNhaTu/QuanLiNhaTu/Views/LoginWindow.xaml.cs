@@ -21,11 +21,9 @@ namespace QuanLiNhaTu
     /// </summary>
     public partial class LoginWindow : Window
     {
-        public LoginWindowViewModel Viewmodel { get; set; }
         public LoginWindow()
         {
             InitializeComponent();
-            this.DataContext = Viewmodel = new LoginWindowViewModel();
         }
 
         private void LoginWindow_MouseMove(object sender, MouseEventArgs e)
