@@ -14,29 +14,12 @@ namespace QuanLiNhaTu.ViewModels
         public ICommand LoadedWindowCommand { get; set; }
         public MainWindowViewModel()
         {
-            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
-            {
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
                 Isloaded = true;
                 if (p == null)
                     return;
-                p.Hide();
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
-
-                if (loginWindow.DataContext == null)
-                    return;
-                var loginVM = loginWindow.DataContext as LoginWindowViewModel;
-                if (loginVM.IsLogin)
-                {
-                    p.Show();
-                }
-                else
-                {
-                    p.Close();
-                }
-                
-            });
-            //Cac xu ly chung nam tai day
+            }
+              );
         }
     }
 }

@@ -21,9 +21,6 @@ namespace QuanLiNhaTu
     /// </summary>
     public partial class LoginWindow : Window
     {
-        public bool IsLogin { get; set; }
-        public ICommand LoginCommand { get; set; }
-        public LoginWindowViewModel Viewmodel { get; set; }
         public LoginWindow()
         {
             InitializeComponent();
