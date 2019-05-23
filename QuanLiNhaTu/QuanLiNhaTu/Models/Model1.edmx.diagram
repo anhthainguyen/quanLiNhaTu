@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ca3f45d4eb0744a195984cebfbe9241a" Name="Diagram1">
+        <EntityTypeShape EntityType="QUAN_LI_NHA_TUModel.BO_PHAN" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUAN_LI_NHA_TUModel.CA_TRUC" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUAN_LI_NHA_TUModel.CAN_BO" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUAN_LI_NHA_TUModel.CAU_HINH" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUAN_LI_NHA_TUModel.CONG_VIEC" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUAN_LI_NHA_TUModel.DOT_KHAM_BENH" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUAN_LI_NHA_TUModel.KHEN_THUONG" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUAN_LI_NHA_TUModel.NANG_KHIEU" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUAN_LI_NHA_TUModel.THAN_NHAN" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUAN_LI_NHA_TUModel.TU_NHAN" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="QUAN_LI_NHA_TUModel.FK__CAN_BO__Ma_BP__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="QUAN_LI_NHA_TUModel.FK__KHEN_THUO__Ma_Tu__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="QUAN_LI_NHA_TUModel.BO_PHAN_CA_TRUC" ManuallyRouted="false" />
+        <AssociationConnector Association="QUAN_LI_NHA_TUModel.CAN_BO_CONG_VIEC" ManuallyRouted="false" />
+        <AssociationConnector Association="QUAN_LI_NHA_TUModel.CAN_BO_DOT_KHAM_BENH" ManuallyRouted="false" />
+        <AssociationConnector Association="QUAN_LI_NHA_TUModel.THAN_NHAN_TU_NHAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QUAN_LI_NHA_TUModel.TU_NHAN_DOT_KHAM_BENH" ManuallyRouted="false" />
+        <AssociationConnector Association="QUAN_LI_NHA_TUModel.TU_NHAN_NANG_KHIEU" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
