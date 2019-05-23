@@ -25,6 +25,7 @@ namespace QuanLiNhaTu.ViewModels
         public ICommand CloseCommand { get; set; }
         public ICommand LoginCommand { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
+        public ICommand ChangePasswordCommand { get; set; }
         #endregion
 
         public LoginWindowViewModel()
@@ -36,12 +37,11 @@ namespace QuanLiNhaTu.ViewModels
             CloseCommand = new RelayCommand<Window>((p) => { return p == null? false : true; }, (p) => { p.Close(); });
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
-            //ChangePasswordCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-
-            //{
-            //    DoiMatKhau change = new DoiMatKhau();
-            //    change.ShowDialog();
-            //});
+            ChangePasswordCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                DoiMatKhau change = new DoiMatKhau();
+                change.ShowDialog();
+            });
         }
         void Login(Window p)
         {
@@ -54,15 +54,15 @@ namespace QuanLiNhaTu.ViewModels
             {
                 IsLogin = true;
                 MainWindow mainWindow = new MainWindow();
-                mainWindow.ShowDialog();
                 p.Close();
+                mainWindow.ShowDialog();
             }
             else if (accCount2 > 0)
             {
                 IsLogin = true;
                 ThanNhan thanNhan = new ThanNhan();
-                thanNhan.ShowDialog();
                 p.Close();
+                thanNhan.ShowDialog();
             }
             else
             {
