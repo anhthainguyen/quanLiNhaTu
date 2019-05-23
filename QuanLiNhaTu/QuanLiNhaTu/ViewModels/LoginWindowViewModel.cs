@@ -18,8 +18,7 @@ namespace QuanLiNhaTu.ViewModels
         public bool IsLogin { get; set; }
         private string _UserName;
         public string UserName { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
-        private string _Password;
-        public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
+        public string Password;
         #region commands
         public ICommand CloseCommand { get; set; }
         public ICommand LoginCommand { get; set; }
@@ -31,6 +30,7 @@ namespace QuanLiNhaTu.ViewModels
             IsLogin = false;
             Password = "";
             UserName = "";
+
             CloseCommand = new RelayCommand<Window>((p) => { return p == null? false : true; }, (p) => { p.Close(); });
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
@@ -47,11 +47,19 @@ namespace QuanLiNhaTu.ViewModels
                 return;
             string passEncode = MD5Hash(Base64Encode(Password));
             var accCount = db.CAN_BO.Where(x => x.Ma_CB == UserName && x.Mat_Khau == passEncode).Count();
+            var accCount2 = db.TU_NHAN.Where(x => x.Ma_Tu_N == UserName && x.Mat_Khau == passEncode).Count();
             if (accCount > 0)
             {
                 IsLogin = true;
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.ShowDialog();
+                p.Close();
+            }
+            else if (accCount2 > 0)
+            {
+                IsLogin = true;
+                ThanNhan thanNhan = new ThanNhan();
+                thanNhan.ShowDialog();
                 p.Close();
             }
             else
