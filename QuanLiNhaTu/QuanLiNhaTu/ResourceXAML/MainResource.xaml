@@ -4,4 +4,6 @@
                     xmlns:viewmodel="clr-namespace:QuanLiNhaTu.ViewModels">
     <viewmodel:MainWindowViewModel x:Key="MainVM"></viewmodel:MainWindowViewModel>
     <viewmodel:LoginWindowViewModel x:Key="LoginVM"></viewmodel:LoginWindowViewModel>
+    <viewmodel:ThanNhanViewModel x:Key="ThanNhanVM"></viewmodel:ThanNhanViewModel>
+    <viewmodel:MainThanNhanViewModel x:Key="MainThanNhanVM"></viewmodel:MainThanNhanViewModel>
 </ResourceDictionary>
