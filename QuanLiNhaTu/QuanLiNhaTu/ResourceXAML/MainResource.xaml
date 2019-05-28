@@ -6,4 +6,5 @@
     <viewmodel:LoginWindowViewModel x:Key="LoginVM"></viewmodel:LoginWindowViewModel>
     <viewmodel:ThanNhanViewModel x:Key="ThanNhanVM"></viewmodel:ThanNhanViewModel>
     <viewmodel:MainThanNhanViewModel x:Key="MainThanNhanVM"></viewmodel:MainThanNhanViewModel>
+    <viewmodel:TuNhanViewModel x:Key="TuNhanVM"></viewmodel:TuNhanViewModel>
 </ResourceDictionary>
