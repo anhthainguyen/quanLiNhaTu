@@ -13,10 +13,10 @@ namespace QuanLiNhaTu.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QUAN_LI_NHA_TUEntities : DbContext
+    public partial class QUAN_LI_NHA_TUEntities1 : DbContext
     {
-        public QUAN_LI_NHA_TUEntities()
-            : base("name=QUAN_LI_NHA_TUEntities")
+        public QUAN_LI_NHA_TUEntities1()
+            : base("name=QUAN_LI_NHA_TUEntities1")
         {
         }
     
@@ -33,6 +33,7 @@ namespace QuanLiNhaTu.Models
         public virtual DbSet<DOT_KHAM_BENH> DOT_KHAM_BENH { get; set; }
         public virtual DbSet<KHEN_THUONG> KHEN_THUONG { get; set; }
         public virtual DbSet<NANG_KHIEU> NANG_KHIEU { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THAN_NHAN> THAN_NHAN { get; set; }
         public virtual DbSet<TU_NHAN> TU_NHAN { get; set; }
     }

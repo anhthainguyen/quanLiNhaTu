@@ -16,7 +16,7 @@ namespace QuanLiNhaTu.ViewModels
 {
     public class LoginWindowViewModel : BaseViewModel
     {
-        public QUAN_LI_NHA_TUEntities db = new QUAN_LI_NHA_TUEntities();
+        public QUAN_LI_NHA_TUEntities1 db = new QUAN_LI_NHA_TUEntities1();
         public bool IsLogin { get; set; }
         private string _UserName;
         public string UserName { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }

@@ -22,11 +22,11 @@ namespace QuanLiNhaTu.Models
             }
         }
 
-        public QUAN_LI_NHA_TUEntities DB { get; set; }
+        public QUAN_LI_NHA_TUEntities1 DB { get; set; }
 
         private DataProvider()
         {
-            DB = new QUAN_LI_NHA_TUEntities();
+            DB = new QUAN_LI_NHA_TUEntities1();
         }
     }
 }
