@@ -13,10 +13,10 @@ namespace QuanLiNhaTu.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QUAN_LI_NHA_TUEntities : DbContext
+    public partial class QUAN_LI_NHA_TUEntities1 : DbContext
     {
-        public QUAN_LI_NHA_TUEntities()
-            : base("name=QUAN_LI_NHA_TUEntities")
+        public QUAN_LI_NHA_TUEntities1()
+            : base("name=QUAN_LI_NHA_TUEntities1")
         {
         }
     

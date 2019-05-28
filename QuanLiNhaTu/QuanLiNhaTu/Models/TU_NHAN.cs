@@ -18,7 +18,6 @@ namespace QuanLiNhaTu.Models
         public TU_NHAN()
         {
             this.KHEN_THUONG = new HashSet<KHEN_THUONG>();
-            this.THAN_NHAN = new HashSet<THAN_NHAN>();
             this.DOT_KHAM_BENH = new HashSet<DOT_KHAM_BENH>();
             this.NANG_KHIEU = new HashSet<NANG_KHIEU>();
         }
@@ -37,11 +36,11 @@ namespace QuanLiNhaTu.Models
         public Nullable<System.DateTime> Ngay_Kham { get; set; }
         public Nullable<System.DateTime> Ngay_Tai_Kham { get; set; }
         public string Mat_Khau { get; set; }
+        public string Ma_Than_N { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KHEN_THUONG> KHEN_THUONG { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THAN_NHAN> THAN_NHAN { get; set; }
+        public virtual THAN_NHAN THAN_NHAN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DOT_KHAM_BENH> DOT_KHAM_BENH { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

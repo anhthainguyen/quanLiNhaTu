@@ -11,7 +11,7 @@ namespace QuanLiNhaTu.ViewModels
 {
     public class ThanNhanViewModel : BaseViewModel
     {
-        public QUAN_LI_NHA_TUEntities db = new QUAN_LI_NHA_TUEntities();
+        public QUAN_LI_NHA_TUEntities1 db = new QUAN_LI_NHA_TUEntities1();
 
         private ObservableCollection<THAN_NHAN> _List;
         public ObservableCollection<THAN_NHAN> List { get => _List; set { _List = value; OnPropertyChanged(); } }

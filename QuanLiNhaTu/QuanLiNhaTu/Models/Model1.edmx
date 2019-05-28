@@ -106,14 +106,7 @@
           <Property Name="Gioi_Tinh" Type="nvarchar" MaxLength="5" />
           <Property Name="Ngay_Sinh" Type="date" />
           <Property Name="SDT" Type="nvarchar" MaxLength="20" />
-        </EntityType>
-        <EntityType Name="THAN_NHAN_TU_NHAN">
-          <Key>
-            <PropertyRef Name="Ma_Tu_N" />
-            <PropertyRef Name="Ma_Than_N" />
-          </Key>
-          <Property Name="Ma_Tu_N" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Ma_Than_N" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Mat_Khau" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TU_NHAN">
           <Key>
@@ -133,6 +126,7 @@
           <Property Name="Ngay_Kham" Type="datetime" />
           <Property Name="Ngay_Tai_Kham" Type="datetime" />
           <Property Name="Mat_Khau" Type="nvarchar(max)" />
+          <Property Name="Ma_Than_N" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="TU_NHAN_DOT_KHAM_BENH">
           <Key>
@@ -250,30 +244,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Than_N_Tu_N_1">
-          <End Role="TU_NHAN" Type="Self.TU_NHAN" Multiplicity="1" />
-          <End Role="THAN_NHAN_TU_NHAN" Type="Self.THAN_NHAN_TU_NHAN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TU_NHAN">
-              <PropertyRef Name="Ma_Tu_N" />
-            </Principal>
-            <Dependent Role="THAN_NHAN_TU_NHAN">
-              <PropertyRef Name="Ma_Tu_N" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Than_N_Tu_N_2">
-          <End Role="THAN_NHAN" Type="Self.THAN_NHAN" Multiplicity="1" />
-          <End Role="THAN_NHAN_TU_NHAN" Type="Self.THAN_NHAN_TU_NHAN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="THAN_NHAN">
-              <PropertyRef Name="Ma_Than_N" />
-            </Principal>
-            <Dependent Role="THAN_NHAN_TU_NHAN">
-              <PropertyRef Name="Ma_Than_N" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Tu_N_Dot_KB_1">
           <End Role="TU_NHAN" Type="Self.TU_NHAN" Multiplicity="1" />
           <End Role="TU_NHAN_DOT_KHAM_BENH" Type="Self.TU_NHAN_DOT_KHAM_BENH" Multiplicity="*" />
@@ -322,6 +292,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TuNhanThanNhan">
+          <End Role="THAN_NHAN" Type="Self.THAN_NHAN" Multiplicity="0..1" />
+          <End Role="TU_NHAN" Type="Self.TU_NHAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THAN_NHAN">
+              <PropertyRef Name="Ma_Than_N" />
+            </Principal>
+            <Dependent Role="TU_NHAN">
+              <PropertyRef Name="Ma_Than_N" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QUAN_LI_NHA_TUModelStoreContainer">
           <EntitySet Name="BO_PHAN" EntityType="Self.BO_PHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BO_PHAN_CA_TRUC" EntityType="Self.BO_PHAN_CA_TRUC" Schema="dbo" store:Type="Tables" />
@@ -335,7 +317,6 @@
           <EntitySet Name="KHEN_THUONG" EntityType="Self.KHEN_THUONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NANG_KHIEU" EntityType="Self.NANG_KHIEU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THAN_NHAN" EntityType="Self.THAN_NHAN" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="THAN_NHAN_TU_NHAN" EntityType="Self.THAN_NHAN_TU_NHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TU_NHAN" EntityType="Self.TU_NHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TU_NHAN_DOT_KHAM_BENH" EntityType="Self.TU_NHAN_DOT_KHAM_BENH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TU_NHAN_NANG_KHIEU" EntityType="Self.TU_NHAN_NANG_KHIEU" Schema="dbo" store:Type="Tables" />
@@ -371,14 +352,6 @@
             <End Role="DOT_KHAM_BENH" EntitySet="DOT_KHAM_BENH" />
             <End Role="CAN_BO_DOT_KHAM_BENH" EntitySet="CAN_BO_DOT_KHAM_BENH" />
           </AssociationSet>
-          <AssociationSet Name="FK_Than_N_Tu_N_1" Association="Self.FK_Than_N_Tu_N_1">
-            <End Role="TU_NHAN" EntitySet="TU_NHAN" />
-            <End Role="THAN_NHAN_TU_NHAN" EntitySet="THAN_NHAN_TU_NHAN" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Than_N_Tu_N_2" Association="Self.FK_Than_N_Tu_N_2">
-            <End Role="THAN_NHAN" EntitySet="THAN_NHAN" />
-            <End Role="THAN_NHAN_TU_NHAN" EntitySet="THAN_NHAN_TU_NHAN" />
-          </AssociationSet>
           <AssociationSet Name="FK_Tu_N_Dot_KB_1" Association="Self.FK_Tu_N_Dot_KB_1">
             <End Role="TU_NHAN" EntitySet="TU_NHAN" />
             <End Role="TU_NHAN_DOT_KHAM_BENH" EntitySet="TU_NHAN_DOT_KHAM_BENH" />
@@ -394,6 +367,10 @@
           <AssociationSet Name="FK_Tu_N_NK_2" Association="Self.FK_Tu_N_NK_2">
             <End Role="TU_NHAN" EntitySet="TU_NHAN" />
             <End Role="TU_NHAN_NANG_KHIEU" EntitySet="TU_NHAN_NANG_KHIEU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TuNhanThanNhan" Association="Self.FK_TuNhanThanNhan">
+            <End Role="THAN_NHAN" EntitySet="THAN_NHAN" />
+            <End Role="TU_NHAN" EntitySet="TU_NHAN" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -485,7 +462,8 @@
           <Property Name="Gioi_Tinh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="Ngay_Sinh" Type="DateTime" Precision="0" />
           <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TU_NHAN" Relationship="Self.THAN_NHAN_TU_NHAN" FromRole="THAN_NHAN" ToRole="TU_NHAN" />
+          <Property Name="Mat_Khau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TU_NHAN" Relationship="Self.FK_TuNhanThanNhan" FromRole="THAN_NHAN" ToRole="TU_NHAN" />
         </EntityType>
         <EntityType Name="TU_NHAN">
           <Key>
@@ -505,8 +483,9 @@
           <Property Name="Ngay_Kham" Type="DateTime" Precision="3" />
           <Property Name="Ngay_Tai_Kham" Type="DateTime" Precision="3" />
           <Property Name="Mat_Khau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ma_Than_N" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="KHEN_THUONG" Relationship="Self.FK__KHEN_THUO__Ma_Tu__44FF419A" FromRole="TU_NHAN" ToRole="KHEN_THUONG" />
-          <NavigationProperty Name="THAN_NHAN" Relationship="Self.THAN_NHAN_TU_NHAN" FromRole="TU_NHAN" ToRole="THAN_NHAN" />
+          <NavigationProperty Name="THAN_NHAN" Relationship="Self.FK_TuNhanThanNhan" FromRole="TU_NHAN" ToRole="THAN_NHAN" />
           <NavigationProperty Name="DOT_KHAM_BENH" Relationship="Self.TU_NHAN_DOT_KHAM_BENH" FromRole="TU_NHAN" ToRole="DOT_KHAM_BENH" />
           <NavigationProperty Name="NANG_KHIEU" Relationship="Self.TU_NHAN_NANG_KHIEU" FromRole="TU_NHAN" ToRole="NANG_KHIEU" />
         </EntityType>
@@ -534,6 +513,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TuNhanThanNhan">
+          <End Role="THAN_NHAN" Type="Self.THAN_NHAN" Multiplicity="0..1" />
+          <End Role="TU_NHAN" Type="Self.TU_NHAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THAN_NHAN">
+              <PropertyRef Name="Ma_Than_N" />
+            </Principal>
+            <Dependent Role="TU_NHAN">
+              <PropertyRef Name="Ma_Than_N" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="BO_PHAN_CA_TRUC">
           <End Role="BO_PHAN" Type="Self.BO_PHAN" Multiplicity="*" />
           <End Role="CA_TRUC" Type="Self.CA_TRUC" Multiplicity="*" />
@@ -546,10 +537,6 @@
           <End Role="CAN_BO" Type="Self.CAN_BO" Multiplicity="*" />
           <End Role="DOT_KHAM_BENH" Type="Self.DOT_KHAM_BENH" Multiplicity="*" />
         </Association>
-        <Association Name="THAN_NHAN_TU_NHAN">
-          <End Role="TU_NHAN" Type="Self.TU_NHAN" Multiplicity="*" />
-          <End Role="THAN_NHAN" Type="Self.THAN_NHAN" Multiplicity="*" />
-        </Association>
         <Association Name="TU_NHAN_DOT_KHAM_BENH">
           <End Role="TU_NHAN" Type="Self.TU_NHAN" Multiplicity="*" />
           <End Role="DOT_KHAM_BENH" Type="Self.DOT_KHAM_BENH" Multiplicity="*" />
@@ -558,7 +545,7 @@
           <End Role="NANG_KHIEU" Type="Self.NANG_KHIEU" Multiplicity="*" />
           <End Role="TU_NHAN" Type="Self.TU_NHAN" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="QUAN_LI_NHA_TUEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QUAN_LI_NHA_TUEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BO_PHAN" EntityType="Self.BO_PHAN" />
           <EntitySet Name="CA_TRUC" EntityType="Self.CA_TRUC" />
           <EntitySet Name="CAN_BO" EntityType="Self.CAN_BO" />
@@ -577,6 +564,10 @@
             <End Role="TU_NHAN" EntitySet="TU_NHAN" />
             <End Role="KHEN_THUONG" EntitySet="KHEN_THUONG" />
           </AssociationSet>
+          <AssociationSet Name="FK_TuNhanThanNhan" Association="Self.FK_TuNhanThanNhan">
+            <End Role="THAN_NHAN" EntitySet="THAN_NHAN" />
+            <End Role="TU_NHAN" EntitySet="TU_NHAN" />
+          </AssociationSet>
           <AssociationSet Name="BO_PHAN_CA_TRUC" Association="Self.BO_PHAN_CA_TRUC">
             <End Role="BO_PHAN" EntitySet="BO_PHAN" />
             <End Role="CA_TRUC" EntitySet="CA_TRUC" />
@@ -588,10 +579,6 @@
           <AssociationSet Name="CAN_BO_DOT_KHAM_BENH" Association="Self.CAN_BO_DOT_KHAM_BENH">
             <End Role="CAN_BO" EntitySet="CAN_BO" />
             <End Role="DOT_KHAM_BENH" EntitySet="DOT_KHAM_BENH" />
-          </AssociationSet>
-          <AssociationSet Name="THAN_NHAN_TU_NHAN" Association="Self.THAN_NHAN_TU_NHAN">
-            <End Role="TU_NHAN" EntitySet="TU_NHAN" />
-            <End Role="THAN_NHAN" EntitySet="THAN_NHAN" />
           </AssociationSet>
           <AssociationSet Name="TU_NHAN_DOT_KHAM_BENH" Association="Self.TU_NHAN_DOT_KHAM_BENH">
             <End Role="TU_NHAN" EntitySet="TU_NHAN" />
@@ -607,7 +594,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QUAN_LI_NHA_TUModelStoreContainer" CdmEntityContainer="QUAN_LI_NHA_TUEntities">
+        <EntityContainerMapping StorageEntityContainer="QUAN_LI_NHA_TUModelStoreContainer" CdmEntityContainer="QUAN_LI_NHA_TUEntities1">
           <EntitySetMapping Name="BO_PHAN">
             <EntityTypeMapping TypeName="QUAN_LI_NHA_TUModel.BO_PHAN">
               <MappingFragment StoreEntitySet="BO_PHAN">
@@ -686,6 +673,7 @@
                 <ScalarProperty Name="Gioi_Tinh" ColumnName="Gioi_Tinh" />
                 <ScalarProperty Name="Ngay_Sinh" ColumnName="Ngay_Sinh" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Mat_Khau" ColumnName="Mat_Khau" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -706,6 +694,7 @@
                 <ScalarProperty Name="Ngay_Kham" ColumnName="Ngay_Kham" />
                 <ScalarProperty Name="Ngay_Tai_Kham" ColumnName="Ngay_Tai_Kham" />
                 <ScalarProperty Name="Mat_Khau" ColumnName="Mat_Khau" />
+                <ScalarProperty Name="Ma_Than_N" ColumnName="Ma_Than_N" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -733,14 +722,6 @@
             </EndProperty>
             <EndProperty Name="DOT_KHAM_BENH">
               <ScalarProperty Name="Ngay_KB" ColumnName="Ngay_KB" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="THAN_NHAN_TU_NHAN" TypeName="QUAN_LI_NHA_TUModel.THAN_NHAN_TU_NHAN" StoreEntitySet="THAN_NHAN_TU_NHAN">
-            <EndProperty Name="TU_NHAN">
-              <ScalarProperty Name="Ma_Tu_N" ColumnName="Ma_Tu_N" />
-            </EndProperty>
-            <EndProperty Name="THAN_NHAN">
-              <ScalarProperty Name="Ma_Than_N" ColumnName="Ma_Than_N" />
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="TU_NHAN_DOT_KHAM_BENH" TypeName="QUAN_LI_NHA_TUModel.TU_NHAN_DOT_KHAM_BENH" StoreEntitySet="TU_NHAN_DOT_KHAM_BENH">

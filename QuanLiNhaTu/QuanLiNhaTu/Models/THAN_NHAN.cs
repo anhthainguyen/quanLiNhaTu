@@ -25,6 +25,7 @@ namespace QuanLiNhaTu.Models
         public string Gioi_Tinh { get; set; }
         public Nullable<System.DateTime> Ngay_Sinh { get; set; }
         public string SDT { get; set; }
+        public string Mat_Khau { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TU_NHAN> TU_NHAN { get; set; }
