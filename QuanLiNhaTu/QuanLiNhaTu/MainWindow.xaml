@@ -53,6 +53,9 @@
                 <ColumnDefinition Width="492*"/>
                 <ColumnDefinition Width="184*"/>
             </Grid.ColumnDefinitions>
+            <Button Command="{Binding MoThanNhanCommand}"
+                    CommandParameter="{Binding ElementName=mainWindow}"
+                    Content="Than Nhan" Grid.Column="2" HorizontalAlignment="Left" Margin="33,243,0,0" VerticalAlignment="Top" Width="224"/>
         </Grid>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
             <Grid.Effect>

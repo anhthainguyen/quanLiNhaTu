@@ -33,6 +33,7 @@ namespace QuanLiNhaTu.Models
         public virtual DbSet<DOT_KHAM_BENH> DOT_KHAM_BENH { get; set; }
         public virtual DbSet<KHEN_THUONG> KHEN_THUONG { get; set; }
         public virtual DbSet<NANG_KHIEU> NANG_KHIEU { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THAN_NHAN> THAN_NHAN { get; set; }
         public virtual DbSet<TU_NHAN> TU_NHAN { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLiNhaTu.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace QuanLiNhaTu.ViewModels
     {
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
+        public ICommand MoThanNhanCommand { get; set; }
         public MainWindowViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
@@ -20,6 +22,11 @@ namespace QuanLiNhaTu.ViewModels
                     return;
             }
               );
+            MoThanNhanCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                ThanNhan ThanNhanWin = new ThanNhan();
+                ThanNhanWin.ShowDialog();
+            });
         }
     }
 }
