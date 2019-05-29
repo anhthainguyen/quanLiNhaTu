@@ -4,39 +4,72 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLiNhaTu.Views"
+        xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
         mc:Ignorable="d"
-        Title="TiepNhanPhongTich" Height="450" Width="800">
+        Title="TIẾP NHẬN VÀ PHÓNG THÍCH"
+        Name="tiepNhanPT"
+        DataContext="{StaticResource TiepNhanPhongThichVM}"
+        ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="144,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="144,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-        <Label Content="Họ tên" HorizontalAlignment="Left" Margin="25,66,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ngày sinh" HorizontalAlignment="Left" Margin="25,105,0,0" VerticalAlignment="Top"/>
-        <Label Content="Giới tính" HorizontalAlignment="Left" Margin="25,144,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="144,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-        <Label Content="Ngày vào" HorizontalAlignment="Left" Margin="25,264,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ngày ra" HorizontalAlignment="Left" Margin="25,303,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tính trạng sức khỏe" HorizontalAlignment="Left" Margin="25,228,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="147,378,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-        <Label Content="Ngày thăm nuôi" HorizontalAlignment="Left" Margin="25,342,0,0" VerticalAlignment="Top"/>
-        <Label Content="Mức độ cải tạo" HorizontalAlignment="Left" Margin="28,378,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="145,106,0,0" VerticalAlignment="Top" Width="190"/>
-        <DatePicker HorizontalAlignment="Left" Margin="145,265,0,0" VerticalAlignment="Top" Width="190"/>
-        <DatePicker HorizontalAlignment="Left" Margin="145,305,0,0" VerticalAlignment="Top" Width="190"/>
-        <DatePicker HorizontalAlignment="Left" Margin="145,344,0,0" VerticalAlignment="Top" Width="190"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="144,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-        <Label Content="Ngươi Thân" HorizontalAlignment="Left" Margin="25,189,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nguyễn Văn A" HorizontalAlignment="Left" Margin="5,4,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ngày" HorizontalAlignment="Left" Margin="115,6,0,0" VerticalAlignment="Top"/>
-        <DataGrid HorizontalAlignment="Left" Height="305" Margin="370,60,0,0" VerticalAlignment="Top" Width="405"/>
-        <Button Content="Thoát" HorizontalAlignment="Left" Margin="665,375,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
-        <RadioButton Content="Tiếp nhận" HorizontalAlignment="Left" Margin="400,12,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Phóng tích" HorizontalAlignment="Left" Margin="510,13,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="152,7,0,0" TextWrapping="Wrap" Text="05" VerticalAlignment="Top" Width="20"/>
-        <Label Content="Tháng" HorizontalAlignment="Left" Margin="177,6,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="222,7,0,0" TextWrapping="Wrap" Text="05" VerticalAlignment="Top" Width="20"/>
-        <Label Content="Năm" HorizontalAlignment="Left" Margin="251,7,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="296,8,0,0" TextWrapping="Wrap" Text="2017" VerticalAlignment="Top" Width="34"/>
-        <Button Content="Export" HorizontalAlignment="Left" Margin="370,375,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=tiepNhanPT}"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto" ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="0,0,0,-0.333">
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="144,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+                    <Label Content="Họ tên" HorizontalAlignment="Left" Margin="25,66,0,0" VerticalAlignment="Top" Height="26" Width="45"/>
+                    <Label Content="Ngày sinh" HorizontalAlignment="Left" Margin="25,105,0,0" VerticalAlignment="Top" Height="25" Width="63"/>
+                    <Label Content="Giới tính" HorizontalAlignment="Left" Margin="26,150,0,0" VerticalAlignment="Top" Height="26" Width="56"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="144,152,0,0" VerticalAlignment="Top" Width="188" Height="28"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="144,228,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+                    <Label Content="Ngày vào" HorizontalAlignment="Left" Margin="25,264,0,0" VerticalAlignment="Top" Height="26" Width="60"/>
+                    <Label Content="Ngày ra" HorizontalAlignment="Left" Margin="25,303,0,0" VerticalAlignment="Top" Height="26" Width="52"/>
+                    <Label Content="Tính trạng sức khỏe" HorizontalAlignment="Left" Margin="25,228,0,0" VerticalAlignment="Top" Height="26" Width="115"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="147,378,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+                    <Label Content="Ngày thăm nuôi" HorizontalAlignment="Left" Margin="25,342,0,0" VerticalAlignment="Top" Height="26" Width="95"/>
+                    <Label Content="Mức độ cải tạo" HorizontalAlignment="Left" Margin="28,378,0,0" VerticalAlignment="Top" Height="26" Width="89"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="145,106,0,0" VerticalAlignment="Top" Width="190" Height="25"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="145,265,0,0" VerticalAlignment="Top" Width="190" Height="26"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="145,305,0,0" VerticalAlignment="Top" Width="190" Height="26"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="145,344,0,0" VerticalAlignment="Top" Width="190" Height="25"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="144,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+                    <Label Content="Người thân" HorizontalAlignment="Left" Margin="25,189,0,0" VerticalAlignment="Top" Height="25" Width="69"/>
+                    <Button Content="Thoát" HorizontalAlignment="Left" Margin="199,415,0,0" VerticalAlignment="Top" Width="110" Height="32" />
+                    <Button Content="Export" HorizontalAlignment="Left" Margin="48,420,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
+                </Grid>
+                <Grid Grid.Column="1" >
+                    <StackPanel>
+                        <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Mã tù nhân" DisplayMemberBinding="{Binding Ma_Tu_N}"></GridViewColumn>
+                                    <GridViewColumn Header="Họ tên" DisplayMemberBinding="{Binding Ho_Ten}"></GridViewColumn>
+                                    <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding Ngay_Sinh}"></GridViewColumn>
+                                    <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding Gioi_Tinh}"></GridViewColumn>
+                                    <GridViewColumn Header="Tội danh" DisplayMemberBinding="{Binding Toi_Danh}"></GridViewColumn>
+                                    <GridViewColumn Header="Ngày vào tù" DisplayMemberBinding="{Binding Ngay_Vao_Tu}"></GridViewColumn>
+                                    <GridViewColumn Header="Ngày ra tù" DisplayMemberBinding="{Binding Ngay_Ra_Tu}"></GridViewColumn>
+                                    <GridViewColumn Header="Tình trạng sức khỏe" DisplayMemberBinding="{Binding Tinh_Trang_suc_Khoe}"></GridViewColumn>
+                                    <GridViewColumn Header="Ngày được thăm nuôi" DisplayMemberBinding="{Binding Ngay_Duoc_Tham_Nuoi}"></GridViewColumn>
+                                    <GridViewColumn Header="Tình trạng giam giữ" DisplayMemberBinding="{Binding Tinh_Trang_Giam_Giu}"></GridViewColumn>
+                                    <GridViewColumn Header="Ngày khám" DisplayMemberBinding="{Binding Ngay_Kham}"></GridViewColumn>
+                                    <GridViewColumn Header="Ngày tái khám" DisplayMemberBinding="{Binding Ngay_Tai_Kham}"></GridViewColumn>
+                                    <GridViewColumn Header="Mã thân nhân" DisplayMemberBinding="{Binding Ma_Than_N}"></GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

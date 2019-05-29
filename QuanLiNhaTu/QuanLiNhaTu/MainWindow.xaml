@@ -16,6 +16,7 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
      DataContext="{StaticResource MainVM}"
+     ResizeMode="NoResize" WindowStyle="None"
      Name="mainWindow">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -56,6 +57,9 @@
             <Button Command="{Binding MoThanNhanCommand}"
                     CommandParameter="{Binding ElementName=mainWindow}"
                     Content="Than Nhan" Grid.Column="2" HorizontalAlignment="Left" Margin="33,243,0,0" VerticalAlignment="Top" Width="224"/>
+            <Button Command="{Binding MoTiepNhanPhongThichCommand}"
+                   CommandParameter="{Binding ElementName=mainWindow}"
+                Content="Tiếp nhận và phóng thích" Grid.Column="2" HorizontalAlignment="Left" Margin="42,308,0,0" VerticalAlignment="Top" Width="75"/>
         </Grid>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
             <Grid.Effect>

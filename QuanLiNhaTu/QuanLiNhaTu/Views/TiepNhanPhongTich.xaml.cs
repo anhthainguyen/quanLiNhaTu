@@ -23,5 +23,7 @@ namespace QuanLiNhaTu.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }

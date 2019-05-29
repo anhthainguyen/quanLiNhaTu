@@ -14,6 +14,7 @@ namespace QuanLiNhaTu.ViewModels
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand MoThanNhanCommand { get; set; }
+        public ICommand MoTiepNhanPhongThichCommand { get; set; }
         public MainWindowViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
@@ -26,6 +27,11 @@ namespace QuanLiNhaTu.ViewModels
             {
                 ThanNhan ThanNhanWin = new ThanNhan();
                 ThanNhanWin.ShowDialog();
+            });
+            MoTiepNhanPhongThichCommand=new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+               TiepNhanPhongTich TNPT = new TiepNhanPhongTich();
+                TNPT.ShowDialog();
             });
         }
     }
