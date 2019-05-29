@@ -19,7 +19,8 @@
         DataContext="{StaticResource ThanNhanVM}"
         ResizeMode="NoResize"
         WindowStyle="None"
-         Name="thanNhan">
+         Name="thanNhan"
+        WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>

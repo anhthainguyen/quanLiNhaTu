@@ -9,7 +9,8 @@
         Title="TIẾP NHẬN VÀ PHÓNG THÍCH"
         Name="tiepNhanPT"
         DataContext="{StaticResource TiepNhanPhongThichVM}"
-        ResizeMode="NoResize" WindowStyle="None">
+        ResizeMode="NoResize" WindowStyle="None"
+        WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>

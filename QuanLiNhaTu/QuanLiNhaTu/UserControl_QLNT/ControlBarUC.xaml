@@ -31,11 +31,6 @@
                         ToolTip="Minimize" ToolBar.OverflowMode="AsNeeded" Background="Transparent" BorderBrush="#FF2281D1">
                         <materialDesign:PackIcon Kind="WindowMinimize"  />
                     </Button>
-                    <Button Command="{Binding RestoreWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucControlBar}"
-                        ToolTip="Restore Down" ToolBar.OverflowMode="AsNeeded" Background="Transparent"  BorderBrush="#FF2281D1">
-                        <materialDesign:PackIcon Kind="WindowRestore" />
-                    </Button>
                     <Separator />
                     <Button Command="{Binding CloseWindowCommand}"
                             CommandParameter="{Binding ElementName=ucControlBar}"

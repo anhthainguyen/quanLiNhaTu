@@ -17,7 +17,8 @@
      FontFamily="{DynamicResource MaterialDesignFont}"
      DataContext="{StaticResource MainVM}"
      ResizeMode="NoResize" WindowStyle="None"
-     Name="mainWindow">
+     Name="mainWindow"
+     WindowState="Maximized" >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
