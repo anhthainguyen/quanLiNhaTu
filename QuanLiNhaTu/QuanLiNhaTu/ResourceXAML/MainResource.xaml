@@ -7,4 +7,5 @@
     <viewmodel:ThanNhanViewModel x:Key="ThanNhanVM"></viewmodel:ThanNhanViewModel>
     <viewmodel:MainThanNhanViewModel x:Key="MainThanNhanVM"></viewmodel:MainThanNhanViewModel>
     <viewmodel:TuNhanViewModel x:Key="TuNhanVM"></viewmodel:TuNhanViewModel>
+    <viewmodel:TiepNhanVaPhongThichViewModel x:Key="TiepNhanPhongThichVM"></viewmodel:TiepNhanVaPhongThichViewModel>
 </ResourceDictionary>
