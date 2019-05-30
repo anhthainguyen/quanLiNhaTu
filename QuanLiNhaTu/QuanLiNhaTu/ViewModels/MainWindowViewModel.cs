@@ -14,12 +14,15 @@ namespace QuanLiNhaTu.ViewModels
     {
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
+        public ICommand UpdateStatistic { get; set; }
         public ICommand MoThanNhanCommand { get; set; }
         public ICommand MoTiepNhanPhongThichCommand { get; set; }
         public ICommand MoCanBoCommand { get; set; }
         public ICommand MoQuanLyCommand { get; set; }
         public ICommand MoChiaLichTrucCommand { get; set; }
         public ICommand LogOutCommand { get; set; }
+        public ICommand MoYTeCommand { get; set; }
+        public ICommand MoTuNhanCommand { get; set; }
         public QUAN_LI_NHA_TUEntities1 db = new QUAN_LI_NHA_TUEntities1();
         private int _soLuongTuNhan = 0;
         public int soLuongTuNhan { get => _soLuongTuNhan; set { _soLuongTuNhan = value; OnPropertyChanged(); } }
@@ -37,6 +40,11 @@ namespace QuanLiNhaTu.ViewModels
                     return;
             }
               );
+            UpdateStatistic = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                soLuongTuNhan = db.TU_NHAN.Count();
+                soLuongCanBo = db.CAN_BO.Count();
+            });
             MoThanNhanCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 ThanNhan ThanNhanWin = new ThanNhan();
@@ -67,6 +75,16 @@ namespace QuanLiNhaTu.ViewModels
                 p.Hide();
                 LoginWindow logInWin = new LoginWindow();
                 logInWin.Show();
+            });
+            MoYTeCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                YTe yTeWin = new YTe();
+                yTeWin.Show();
+            });
+            MoTuNhanCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                TuNhan tuNhan = new TuNhan();
+                tuNhan.Show();
             });
         }
     }
