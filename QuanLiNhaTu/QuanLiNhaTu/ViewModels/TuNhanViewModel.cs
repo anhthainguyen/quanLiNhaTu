@@ -102,7 +102,7 @@ namespace QuanLiNhaTu.ViewModels
             {
                 var tn = new TU_NHAN()
                 {
-                    Ma_Than_N = MaTuNhan
+                    Ma_Tu_N= MaTuNhan
                     ,
                     Ho_Ten = _HoTen
                     ,
