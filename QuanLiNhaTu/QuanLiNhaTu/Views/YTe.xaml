@@ -5,27 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLiNhaTu.Views"
         mc:Ignorable="d"
-        Title="YTe" Height="450" Width="800">
-    <Grid>
-        <Label Content="Nguyễn Văn A" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ngày KT sức khỏe" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="245,10,0,0" VerticalAlignment="Top" Width="190"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="136,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="136,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-        <Label Content="Họ tên" HorizontalAlignment="Left" Margin="17,62,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ngày sinh" HorizontalAlignment="Left" Margin="17,101,0,0" VerticalAlignment="Top"/>
-        <Label Content="Giới tính" HorizontalAlignment="Left" Margin="17,140,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="136,224,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-        <Label Content="Tính trạng sức khỏe" HorizontalAlignment="Left" Margin="17,224,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="137,102,0,0" VerticalAlignment="Top" Width="190"/>
-        <Label Content="Ngày KTSK lần sau" HorizontalAlignment="Left" Margin="17,182,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="137,183,0,0" VerticalAlignment="Top" Width="190"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="136,275,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-        <Label Content="Chế độ ăn" HorizontalAlignment="Left" Margin="17,275,0,0" VerticalAlignment="Top"/>
-        <DataGrid HorizontalAlignment="Left" Height="305" Margin="355,55,0,0" VerticalAlignment="Top" Width="415"/>
-        <Button Content="Thoát" HorizontalAlignment="Left" Margin="665,375,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
-        <Button Content="Lưu" HorizontalAlignment="Left" Margin="25,375,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
-        <Button Content="Hủy" HorizontalAlignment="Left" Margin="210,375,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
+        Title="YTe" Height="450" Width="800"
+    
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        
+        xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+    DataContext="{StaticResource YTeVM}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
+                                   CommandParameter="{Binding ElementName=mainWindow}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=window}"></uc:ControlBarUC>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--các element binding từ selected item-->
+            <materialDesign:Card Grid.Row="0" Margin="5">
+                <WrapPanel Margin="0 0 0 10">
+                    <TextBox IsReadOnly="True" Text="{Binding MaTuNhan, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã thân nhân" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox IsReadOnly="True" Text="{Binding HoTen, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <DatePicker IsEnabled="False" VerticalAlignment="Center" SelectedDate="{Binding NgaySinh, UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="5 -5 15 -7" materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <TextBox IsReadOnly="True" Text="{Binding GioiTinh, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    
+                    <TextBox Text="{Binding TinhTrangSucKhoe, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="TT sức khỏe" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+
+
+                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgayKham, UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="5 -5 15 -7" materialDesign:HintAssist.Hint="Ngày khám" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgayTaiKham, UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="5 -5 15 -7" materialDesign:HintAssist.Hint="Ngày tái khám" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="1" Margin="5">
+                <WrapPanel>
+                    <Button Command="{Binding ViewAll}" Content="Xem tất cả" Margin="5" Width="100"></Button>
+                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding TimNgay, UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="5 -5 15 -7" materialDesign:HintAssist.Hint="Chon ngày khám" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <Button Command="{Binding FindCommand}" Content="Tìm" Margin="5" Width="100"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding List, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Mã tù nhân" DisplayMemberBinding="{Binding Ma_Tu_N}"></GridViewColumn>
+                                <GridViewColumn Header="Họ tên" DisplayMemberBinding="{Binding Ho_Ten}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding Ngay_Sinh, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
+                                <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding Gioi_Tinh}"></GridViewColumn>
+                               
+                                <GridViewColumn Header="TT sức khỏe" DisplayMemberBinding="{Binding Tinh_Trang_suc_Khoe}"></GridViewColumn>
+                                
+                                <GridViewColumn Header="Ngày khám" DisplayMemberBinding="{Binding Ngay_Kham, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày tái khám" DisplayMemberBinding="{Binding Ngay_Tai_Kham, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
     </Grid>
 </Window>
