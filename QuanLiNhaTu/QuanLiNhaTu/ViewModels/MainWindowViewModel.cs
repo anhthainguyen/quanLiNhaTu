@@ -1,4 +1,5 @@
-﻿using QuanLiNhaTu.Views;
+﻿using QuanLiNhaTu.Models;
+using QuanLiNhaTu.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,17 @@ namespace QuanLiNhaTu.ViewModels
         public ICommand MoQuanLyCommand { get; set; }
         public ICommand MoChiaLichTrucCommand { get; set; }
         public ICommand LogOutCommand { get; set; }
+        public QUAN_LI_NHA_TUEntities1 db = new QUAN_LI_NHA_TUEntities1();
+        private int _soLuongTuNhan = 0;
+        public int soLuongTuNhan { get => _soLuongTuNhan; set { _soLuongTuNhan = value; OnPropertyChanged(); } }
+        private int _soLuongCanBo = 0;
+        public int soLuongCanBo { get => _soLuongCanBo; set { _soLuongCanBo = value; OnPropertyChanged(); } }
+        public int _soLuongPhongThichHomNay = 0;
+        public int soLuongPhongThichHomNay { get => _soLuongPhongThichHomNay; set { _soLuongPhongThichHomNay = value; OnPropertyChanged(); } }
         public MainWindowViewModel()
         {
+            soLuongTuNhan = db.TU_NHAN.Count();
+            soLuongCanBo = db.CAN_BO.Count();
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
                 Isloaded = true;
                 if (p == null)
