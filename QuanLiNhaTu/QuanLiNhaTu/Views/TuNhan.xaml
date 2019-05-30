@@ -17,7 +17,8 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Title="TuNhan" Height="450" Width="800"
+        Title="TÙ NHÂN" 
+        Name="tuNhan"
         DataContext="{StaticResource TuNhanVM}"
         WindowState="Maximized">
     <Grid>
@@ -26,7 +27,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:ControlBarUC Tag="{Binding Title, ElementName=window}"></uc:ControlBarUC>
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=tuNhan}"></uc:ControlBarUC>
         </Grid>
 
         <Grid Grid.Row="1">

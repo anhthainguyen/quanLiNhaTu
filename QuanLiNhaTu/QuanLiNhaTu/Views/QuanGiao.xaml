@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:QuanLiNhaTu.Views"
         xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
         mc:Ignorable="d"
-        Title="QUẢN GIÁO"
+        Title="CÁN BỘ"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Name="quanGiao"
+        Name="canBo"
         DataContext="{StaticResource QuanGiaoVM}"
         ResizeMode="NoResize" WindowStyle="None"
         WindowState="Maximized">
@@ -18,7 +18,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:ControlBarUC Tag="{Binding Title, ElementName=thanNhan}"></uc:ControlBarUC>
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=canBo}"></uc:ControlBarUC>
         </Grid>
 
         <Grid Grid.Row="1">

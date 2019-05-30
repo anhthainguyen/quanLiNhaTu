@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLiNhaTu.Views"
         mc:Ignorable="d"
-        Title="YTe" Height="450" Width="800"
-    
+        Title="Y TẾ" 
+        Name="yTe"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         
         xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
@@ -36,7 +36,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:ControlBarUC Tag="{Binding Title, ElementName=window}"></uc:ControlBarUC>
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=yTe}"></uc:ControlBarUC>
         </Grid>
 
         <Grid Grid.Row="1">

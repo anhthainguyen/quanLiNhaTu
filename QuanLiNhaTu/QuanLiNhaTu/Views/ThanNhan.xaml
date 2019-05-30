@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLiNhaTu"
         mc:Ignorable="d"
-        Title="THAN NHAN"
+        Title="THÂN NHÂN"
      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
