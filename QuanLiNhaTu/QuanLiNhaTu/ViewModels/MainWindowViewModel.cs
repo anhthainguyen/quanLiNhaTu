@@ -35,56 +35,126 @@ namespace QuanLiNhaTu.ViewModels
             soLuongTuNhan = db.TU_NHAN.Count();
             soLuongCanBo = db.CAN_BO.Count();
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
-                Isloaded = true;
-                if (p == null)
-                    return;
+                try
+                {
+                    Isloaded = true;
+                    if (p == null)
+                        return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
               );
             UpdateStatistic = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                soLuongTuNhan = db.TU_NHAN.Count();
-                soLuongCanBo = db.CAN_BO.Count();
+                try
+                {
+                    soLuongTuNhan = db.TU_NHAN.Count();
+                    soLuongCanBo = db.CAN_BO.Count();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
             MoThanNhanCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                ThanNhan ThanNhanWin = new ThanNhan();
-                ThanNhanWin.ShowDialog();
+                try
+                {
+                    ThanNhan ThanNhanWin = new ThanNhan();
+                    ThanNhanWin.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
             MoTiepNhanPhongThichCommand=new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-               TiepNhanPhongTich TNPT = new TiepNhanPhongTich();
-                TNPT.ShowDialog();
+                try
+                {
+                    TiepNhanPhongTich TNPT = new TiepNhanPhongTich();
+                    TNPT.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
             MoCanBoCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                QuanGiao QuanGiaoWin = new QuanGiao();
-                QuanGiaoWin.ShowDialog();
+                try
+                {
+                    QuanGiao QuanGiaoWin = new QuanGiao();
+                    QuanGiaoWin.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
             MoQuanLyCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                MainQuanLy QL = new MainQuanLy();
-                QL.ShowDialog();
+                try
+                {
+                    MainQuanLy QL = new MainQuanLy();
+                    QL.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
             MoChiaLichTrucCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                ChiaLichTruc ChiaLich = new ChiaLichTruc();
-                ChiaLich.ShowDialog();
+                try
+                {
+                    ChiaLichTruc ChiaLich = new ChiaLichTruc();
+                    ChiaLich.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
             LogOutCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                p.Hide();
-                LoginWindow logInWin = new LoginWindow();
-                logInWin.Show();
+                try
+                {
+                    p.Hide();
+                    LoginWindow logInWin = new LoginWindow();
+                    logInWin.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
             MoYTeCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                YTe yTeWin = new YTe();
-                yTeWin.Show();
+                try
+                {
+                    YTe yTeWin = new YTe();
+                    yTeWin.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
             MoTuNhanCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                TuNhan tuNhan = new TuNhan();
-                tuNhan.Show();
+                try
+                {
+                    TuNhan tuNhan = new TuNhan();
+                    tuNhan.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
         }
     }

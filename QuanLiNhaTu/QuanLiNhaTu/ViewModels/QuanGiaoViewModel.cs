@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using QuanLiNhaTu.Models;
 using System.Windows.Input;
+using System.Windows;
 
 namespace QuanLiNhaTu.ViewModels
 {
@@ -22,14 +23,21 @@ namespace QuanLiNhaTu.ViewModels
             get => _SelectedItem;
             set
             {
-                _SelectedItem = value;
-                OnPropertyChanged();
-                if (SelectedItem != null)
+                try
                 {
-                    MaCanBo = SelectedItem.Ma_CB;
-                    HoTen = SelectedItem.Ho_Ten;
-                    NgaySinh = SelectedItem.Ngay_Sinh;
-                    SDT = SelectedItem.SDT;
+                    _SelectedItem = value;
+                    OnPropertyChanged();
+                    if (SelectedItem != null)
+                    {
+                        MaCanBo = SelectedItem.Ma_CB;
+                        HoTen = SelectedItem.Ho_Ten;
+                        NgaySinh = SelectedItem.Ngay_Sinh;
+                        SDT = SelectedItem.SDT;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }
@@ -59,12 +67,19 @@ namespace QuanLiNhaTu.ViewModels
                 return false;
             }, (p) =>
             {
-                var cb = new CAN_BO() { Ma_CB = MaCanBo, Ho_Ten = _HoTen, Ngay_Sinh = NgaySinh, SDT = SDT };
+                try
+                {
+                    var cb = new CAN_BO() { Ma_CB = MaCanBo, Ho_Ten = _HoTen, Ngay_Sinh = NgaySinh, SDT = SDT };
 
-                db.CAN_BO.Add(cb);
-                db.SaveChanges();
+                    db.CAN_BO.Add(cb);
+                    db.SaveChanges();
 
-                List.Add(cb);
+                    List.Add(cb);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
 
             EditCommand = new RelayCommand<object>((p) =>
@@ -79,14 +94,21 @@ namespace QuanLiNhaTu.ViewModels
                 return false;
             }, (p) =>
             {
-                var tn = db.CAN_BO.Where(x => x.Ma_CB == SelectedItem.Ma_CB).SingleOrDefault();
-                tn.Ma_CB = MaCanBo;
-                tn.Ho_Ten = HoTen;
-                tn.Ngay_Sinh = NgaySinh;
-                tn.SDT = SDT;
-                if (db.SaveChanges() == 1)
+                try
                 {
-                    List = new ObservableCollection<CAN_BO>(db.CAN_BO);
+                    var tn = db.CAN_BO.Where(x => x.Ma_CB == SelectedItem.Ma_CB).SingleOrDefault();
+                    tn.Ma_CB = MaCanBo;
+                    tn.Ho_Ten = HoTen;
+                    tn.Ngay_Sinh = NgaySinh;
+                    tn.SDT = SDT;
+                    if (db.SaveChanges() == 1)
+                    {
+                        List = new ObservableCollection<CAN_BO>(db.CAN_BO);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
 
@@ -98,12 +120,19 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var cb = db.CAN_BO.Where(x => x.Ma_CB == SelectedItem.Ma_CB).SingleOrDefault();
-
-                db.CAN_BO.Remove(cb);
-                if (db.SaveChanges() == 1)
+                try
                 {
-                    List.Remove(cb);
+                    var cb = db.CAN_BO.Where(x => x.Ma_CB == SelectedItem.Ma_CB).SingleOrDefault();
+
+                    db.CAN_BO.Remove(cb);
+                    if (db.SaveChanges() == 1)
+                    {
+                        List.Remove(cb);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
         }

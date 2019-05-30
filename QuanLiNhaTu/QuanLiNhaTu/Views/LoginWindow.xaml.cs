@@ -28,9 +28,16 @@ namespace QuanLiNhaTu
 
         private void LoginWindow_MouseMove(object sender, MouseEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            try
             {
-                this.DragMove();
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    this.DragMove();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

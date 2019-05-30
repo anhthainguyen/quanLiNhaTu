@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using QuanLiNhaTu.Views;
 using QuanLiNhaTu.Models;
+using System.Windows;
 
 namespace QuanLiNhaTu.ViewModels
 {
@@ -16,9 +17,16 @@ namespace QuanLiNhaTu.ViewModels
         public ICommand CanBoCommand { get; set; }
         public MainQuanLyViewModel()
         {
-            ThanNhanCommand = new RelayCommand<object>((p) => { return true; }, (p) => { ThanNhan wd = new ThanNhan(); wd.ShowDialog(); });
-            TuNhanCommand = new RelayCommand<object>((p) => { return true; }, (p) => { TuNhan wd = new TuNhan(); wd.ShowDialog(); });
-            CanBoCommand = new RelayCommand<object>((p) => { return true; }, (p) => { ChiaLichTruc wd = new ChiaLichTruc(); wd.ShowDialog(); });
+            try
+            {
+                ThanNhanCommand = new RelayCommand<object>((p) => { return true; }, (p) => { ThanNhan wd = new ThanNhan(); wd.ShowDialog(); });
+                TuNhanCommand = new RelayCommand<object>((p) => { return true; }, (p) => { TuNhan wd = new TuNhan(); wd.ShowDialog(); });
+                CanBoCommand = new RelayCommand<object>((p) => { return true; }, (p) => { ChiaLichTruc wd = new ChiaLichTruc(); wd.ShowDialog(); });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

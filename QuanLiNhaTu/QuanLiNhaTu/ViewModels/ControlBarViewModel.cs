@@ -21,54 +21,82 @@ namespace QuanLiNhaTu.ViewModels
         {
             CloseWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
-                FrameworkElement window = GetWindowParent(p);
-                var w = window as Window;
-                if (w != null)
+                try
                 {
-                    w.Close();
+                    FrameworkElement window = GetWindowParent(p);
+                    var w = window as Window;
+                    if (w != null)
+                    {
+                        w.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
          );
             RestoreWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
-                FrameworkElement window = GetWindowParent(p);
-                var w = window as Window;
-                if (w != null)
+                try
                 {
-                    if (w.WindowState != WindowState.Maximized)
+                    FrameworkElement window = GetWindowParent(p);
+                    var w = window as Window;
+                    if (w != null)
                     {
-                        w.WindowState = WindowState.Maximized;
+                        if (w.WindowState != WindowState.Maximized)
+                        {
+                            w.WindowState = WindowState.Maximized;
+                        }
+                        else
+                        {
+                            w.WindowState = WindowState.Normal;
+                        }
                     }
-                    else
-                    {
-                        w.WindowState = WindowState.Normal;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
          );
             MinimizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
-                FrameworkElement window = GetWindowParent(p);
-                var w = window as Window;
-                if (w.WindowState != WindowState.Minimized)
+                try
                 {
-                    w.WindowState = WindowState.Minimized;
+
+                    FrameworkElement window = GetWindowParent(p);
+                    var w = window as Window;
+                    if (w.WindowState != WindowState.Minimized)
+                    {
+                        w.WindowState = WindowState.Minimized;
+                    }
+                    else
+                    {
+                        w.WindowState = WindowState.Maximized;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    w.WindowState = WindowState.Maximized;
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
          );
             MouseMoveWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
-                FrameworkElement window = GetWindowParent(p);
-                var w = window as Window;
-                if (w != null)
+                try
                 {
-                    w.DragMove();
+                    FrameworkElement window = GetWindowParent(p);
+                    var w = window as Window;
+                    if (w != null)
+                    {
+                        w.DragMove();
+                    }
                 }
-                
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
          );
         }
