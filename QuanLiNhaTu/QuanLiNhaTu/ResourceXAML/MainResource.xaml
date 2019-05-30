@@ -11,4 +11,5 @@
     <viewmodel:ThanNhanViewModel x:Key="ThanNhanVM"></viewmodel:ThanNhanViewModel>
     <viewmodel:TiepNhanVaPhongThichViewModel x:Key="TiepNhanPhongThichVM"></viewmodel:TiepNhanVaPhongThichViewModel>
     <viewmodel:QuanGiaoViewModel x:Key="QuanGiaoVM"></viewmodel:QuanGiaoViewModel>
+    <viewmodel:YTeViewModel x:Key="YTeVM"></viewmodel:YTeViewModel>
 </ResourceDictionary>

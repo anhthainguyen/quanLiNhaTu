@@ -18,7 +18,8 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Title="TuNhan" Height="450" Width="800"
-        DataContext="{StaticResource TuNhanVM}">
+        DataContext="{StaticResource TuNhanVM}"
+        WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>

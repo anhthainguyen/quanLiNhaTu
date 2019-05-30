@@ -140,6 +140,7 @@
     <Compile Include="ViewModels\ThanNhanViewModel.cs" />
     <Compile Include="ViewModels\TiepNhanVaPhongThichViewModel.cs" />
     <Compile Include="ViewModels\TuNhanViewModel.cs" />
+    <Compile Include="ViewModels\YTeViewModel.cs" />
     <Compile Include="Views\ChiaLichTruc.xaml.cs">
       <DependentUpon>ChiaLichTruc.xaml</DependentUpon>
     </Compile>
