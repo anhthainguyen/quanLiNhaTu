@@ -18,7 +18,8 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         DataContext="{StaticResource ChiaLichTrucVM}"
-        Title="CanBo" Height="450" Width="800"
+        Title="LỊCH TRỰC" 
+        Name="lichTruc"
         WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
@@ -31,7 +32,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0" Grid.ColumnSpan="2">
-            <uc:ControlBarUC Tag="{Binding Title, ElementName=window}"></uc:ControlBarUC>
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=lichTruc}"></uc:ControlBarUC>
         </Grid>
         <Grid Grid.Row="1" Grid.RowSpan="3">
             <Grid.RowDefinitions>
