@@ -22,7 +22,7 @@
         
          DataContext="{StaticResource LoginVM}"
         Name="loginWindow"
-        Title="Đăng nhập" Height="300" Width="400">
+        Title="Đăng nhập" Height="400" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -31,7 +31,7 @@
         <Grid Grid.Row="0">
             <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}"></uc:ControlBarUC>
         </Grid>
-        <materialDesign:Card Grid.Row="1" Width="330" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <materialDesign:Card Grid.Row="1" Width="350" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid>
                 <Grid.Resources>
                     <Style TargetType="Grid">
@@ -39,6 +39,9 @@
                     </Style>
                 </Grid.Resources>
                 <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -61,6 +64,9 @@
                     </PasswordBox>
                 </Grid>
                 <Grid Grid.Row="2">
+                    <Label Content="{Binding Massage}" FontWeight="Bold" Foreground="Red"/>
+                </Grid>
+                <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
@@ -80,6 +86,21 @@
                             CommandParameter="{Binding ElementName=loginWindow}"
                             Background="OrangeRed"
                             ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thoát"></Button>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <RadioButton Content="Cán bộ" HorizontalAlignment="Left" Margin="25,16,0,0" VerticalAlignment="Top" IsChecked="True"
+                                 Command="{Binding RadioCommand}" CommandParameter="CanBo"/>
+                    <RadioButton Content="Thân nhân" HorizontalAlignment="Left" Margin="167,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.462,-0.111"
+                                 Command="{Binding RadioCommand}" CommandParameter="ThanNhan"/>
+                </Grid>
+                <Grid Grid.Row="5">
+                    <Button    
+                            Style="{StaticResource MaterialDesignRaisedButton}"    
+                            Width="200"   
+                            Command="{Binding PasswordCommand}"                          
+                            CommandParameter="{Binding ElementName=loginWindow}"
+                            Background="Brown"
+                            ToolTip="Resource name: MaterialDesignRaisedButton" Content="THAY ĐỔI MẬT KHẨU"></Button>
                 </Grid>
             </Grid>
         </materialDesign:Card>

@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using QuanLiNhaTu.Models;
+using System.Windows;
 using System.Windows.Input;
+using QuanLiNhaTu.ViewModels;
 
 namespace QuanLiNhaTu.ViewModels
 {
@@ -66,29 +68,32 @@ namespace QuanLiNhaTu.ViewModels
         private string _SDT;
         public string SDT { get => _SDT; set { _SDT = value; OnPropertyChanged(); } }
 
+        private string MaThanNhanN=LoginWindowViewModel._UserName;
+
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
-
+        public ICommand Logout { get; set; }
         public MainThanNhanViewModel()
         {
-            List = new ObservableCollection<TU_NHAN>(db.TU_NHAN);
+            Logout = new RelayCommand<Window>((p) => { return p == null ? false : true; }, (p) => { ShowForm(p); });
+            List = new ObservableCollection<TU_NHAN>(db.TU_NHAN.Where(x => x.Ma_Than_N == MaThanNhanN));
 
-            AddCommand = new RelayCommand<object>((p) =>
-            {
-                if (MaThanNhan != null & HoTen != null)
-                    return true;
-                return false;
+            //AddCommand = new RelayCommand<object>((p) =>
+            //{
+            //    if (MaThanNhan != null & HoTen != null)
+            //        return true;
+            //    return false;
 
-            }, (p) =>
-            {
-                var tn = new TU_NHAN() {Ho_Ten = HoTen, Ngay_Sinh = NgaySinh, Gioi_Tinh = GioiTinh, Tinh_Trang_suc_Khoe=SucKhoe,Ngay_Vao_Tu=NgayVao,Ngay_Ra_Tu=NgayRa,Ngay_Duoc_Tham_Nuoi=NgayThamNuoi,Muc_Do_Cai_Tao=MucDoCaiTao};
+            //}, (p) =>
+            //{
+            //    var tn = new TU_NHAN() {Ho_Ten = HoTen, Ngay_Sinh = NgaySinh, Gioi_Tinh = GioiTinh, Tinh_Trang_suc_Khoe=SucKhoe,Ngay_Vao_Tu=NgayVao,Ngay_Ra_Tu=NgayRa,Ngay_Duoc_Tham_Nuoi=NgayThamNuoi,Muc_Do_Cai_Tao=MucDoCaiTao};
 
-                db.TU_NHAN.Add(tn);
-                db.SaveChanges();
+            //    db.TU_NHAN.Add(tn);
+            //    db.SaveChanges();
 
-                List.Add(tn);
-            });
+            //    List.Add(tn);
+            //});
 
             //EditCommand = new RelayCommand<object>((p) =>
             //{
@@ -108,7 +113,7 @@ namespace QuanLiNhaTu.ViewModels
             //    tn.Ho_Ten = HoTen;
             //    tn.Ngay_Sinh = NgaySinh;
             //    tn.Gioi_Tinh = GioiTinh;
-                
+
             //    tn.Tinh_Trang_suc_Khoe = SucKhoe;
             //    tn.Ngay_Vao_Tu = NgayVao;
             //    tn.Ngay_Ra_Tu= NgayRa;
@@ -136,6 +141,13 @@ namespace QuanLiNhaTu.ViewModels
             //        List.Remove(tn);
             //    }
             //});
+        }
+
+        private void ShowForm(Window p)
+        {
+            LoginWindow mainWindow = new LoginWindow();
+            p.Close();
+            mainWindow.ShowDialog();
         }
     }
 }

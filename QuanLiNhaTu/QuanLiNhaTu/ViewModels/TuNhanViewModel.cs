@@ -102,7 +102,7 @@ namespace QuanLiNhaTu.ViewModels
             {
                 var tn = new TU_NHAN()
                 {
-                    Ma_Than_N = MaTuNhan
+                    Ma_Tu_N = MaTuNhan
                     ,
                     Ho_Ten = _HoTen
                     ,
@@ -127,6 +127,8 @@ namespace QuanLiNhaTu.ViewModels
                     Ngay_Kham = NgayKham
                     ,
                     Ngay_Tai_Kham = NgayTaiKham
+                    ,
+                    Ma_Than_N = ThanNhan
                 };
                 db.TU_NHAN.Add(tn);
                 if (db.SaveChanges() == 1)
@@ -148,8 +150,8 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = db.TU_NHAN.Where(x => x.Ma_Than_N == SelectedItem.Ma_Than_N).SingleOrDefault();
-                tn.Ma_Than_N = MaTuNhan;
+                var tn = db.TU_NHAN.Where(x => x.Ma_Tu_N == SelectedItem.Ma_Tu_N).SingleOrDefault();
+                tn.Ma_Than_N = ThanNhan;
                 tn.Ho_Ten = HoTen;
                 tn.Ngay_Sinh = NgaySinh;
                 tn.Gioi_Tinh = GioiTinh;
@@ -176,7 +178,7 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = db.TU_NHAN.Where(x => x.Ma_Than_N == SelectedItem.Ma_Than_N).SingleOrDefault();
+                var tn = db.TU_NHAN.Where(x => x.Ma_Tu_N == SelectedItem.Ma_Tu_N).SingleOrDefault();
 
                 db.TU_NHAN.Remove(tn);
                 if (db.SaveChanges() == 1)

@@ -38,7 +38,7 @@
             <!--các element binding từ selected item-->
             <materialDesign:Card Grid.Row="0" Margin="5">
                 <WrapPanel Margin="0 0 0 10">
-                    <TextBox Text="{Binding MaTuNhan, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã thân nhân" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding MaTuNhan, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã tù nhân" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox Text="{Binding HoTen, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgaySinh, UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="5 -5 15 -7" materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                     <TextBox Text="{Binding GioiTinh, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -51,6 +51,7 @@
                     <TextBox Text="{Binding TinhTrangGiamGiu, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="TT giam giữ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgayKham, UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="5 -5 15 -7" materialDesign:HintAssist.Hint="Ngày khám" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                     <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgayTaiKham, UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="5 -5 15 -7" materialDesign:HintAssist.Hint="Ngày tái khám" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <TextBox Text="{Binding ThanNhan, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã thân nhân" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 </WrapPanel>
             </materialDesign:Card>
 
