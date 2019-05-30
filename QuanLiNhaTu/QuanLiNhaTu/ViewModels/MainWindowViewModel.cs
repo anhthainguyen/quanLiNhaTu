@@ -16,6 +16,8 @@ namespace QuanLiNhaTu.ViewModels
         public ICommand MoThanNhanCommand { get; set; }
         public ICommand MoTiepNhanPhongThichCommand { get; set; }
         public ICommand MoCanBoCommand { get; set; }
+        public ICommand MoQuanLyCommand { get; set; }
+        public ICommand MoChiaLichTrucCommand { get; set; }
         public MainWindowViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
@@ -38,6 +40,16 @@ namespace QuanLiNhaTu.ViewModels
             {
                 QuanGiao QuanGiaoWin = new QuanGiao();
                 QuanGiaoWin.ShowDialog();
+            });
+            MoQuanLyCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                MainQuanLy QL = new MainQuanLy();
+                QL.ShowDialog();
+            });
+            MoChiaLichTrucCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                ChiaLichTruc ChiaLich = new ChiaLichTruc();
+                ChiaLich.ShowDialog();
             });
         }
     }

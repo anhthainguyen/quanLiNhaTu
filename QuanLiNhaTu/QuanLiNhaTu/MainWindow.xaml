@@ -60,10 +60,11 @@
                     Content="Than Nhan" Grid.Column="2" HorizontalAlignment="Left" Margin="33,243,0,0" VerticalAlignment="Top" Width="224"/>
             <Button Command="{Binding MoTiepNhanPhongThichCommand}"
                    CommandParameter="{Binding ElementName=mainWindow}"
-                Content="Tiếp nhận và phóng thích" Grid.Column="2" HorizontalAlignment="Left" Margin="42,308,0,0" VerticalAlignment="Top" Width="75"/>
+                Content="Tiếp nhận và phóng thích" Grid.Column="2" HorizontalAlignment="Left" Margin="42,308,0,0" VerticalAlignment="Top" Width="221"/>
             <Button Command="{Binding MoCanBoCommand}"
                 CommandParameter="{Binding ElementName=mainWindow}"
                 Content="Can Bo" Grid.Column="2" HorizontalAlignment="Left" Margin="33,186,0,0" VerticalAlignment="Top" Width="224"/>
+            <Button Command="{Binding MoQuanLyCommand}" CommandParameter="{Binding ElementName=mainWindow}"  Content="Quản lý" Grid.Column="2" HorizontalAlignment="Left" Margin="32,379,0,0" VerticalAlignment="Top" Width="231"/>
         </Grid>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
             <Grid.Effect>
