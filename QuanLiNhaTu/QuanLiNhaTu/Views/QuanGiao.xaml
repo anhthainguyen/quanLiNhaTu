@@ -7,24 +7,59 @@
         xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
         mc:Ignorable="d"
         Title="QUẢN GIÁO"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Name="quanGiao"
-        ResizeMode="NoResize" WindowStyle="None">
+        DataContext="{StaticResource QuanGiaoVM}"
+        ResizeMode="NoResize" WindowStyle="None"
+        WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <uc:ControlBarUC Tag="{Binding Title, ElementName= quanGiao}"/>
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=thanNhan}"></uc:ControlBarUC>
         </Grid>
+
         <Grid Grid.Row="1">
-            <ComboBox HorizontalAlignment="Left" Margin="375,28,0,0" VerticalAlignment="Top" Width="120"/>
-            <Label Content="Mức độ phảm tội" HorizontalAlignment="Left" Margin="255,30,0,0" VerticalAlignment="Top"/>
-            <ComboBox HorizontalAlignment="Left" Margin="655,27,0,0" VerticalAlignment="Top" Width="120"/>
-            <Label Content="Tình trạng sức khỏe" HorizontalAlignment="Left" Margin="520,30,0,0" VerticalAlignment="Top"/>
-            <Label Content="Nguyễn Văn A" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <Button Content="Thoát" HorizontalAlignment="Left" Margin="665,375,0,0" VerticalAlignment="Top" Width="110" Height="32"/>
-            <DataGrid HorizontalAlignment="Left" Height="290" Margin="15,70,0,0" VerticalAlignment="Top" Width="750"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--các element binding từ selected item-->
+            <materialDesign:Card Grid.Row="0" Margin="5">
+                <WrapPanel Margin="0 0 0 10">
+                    <TextBox Text="{Binding MaCanBo, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã thân nhân" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding HoTen, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Họ tên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgaySinh, UpdateSourceTrigger=PropertyChanged}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                    <TextBox Text="{Binding SDT, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="1" Margin="5">
+                <WrapPanel>
+                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding List, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Mã thân nhân" DisplayMemberBinding="{Binding Ma_CB}"></GridViewColumn>
+                                <GridViewColumn Header="Họ tên" DisplayMemberBinding="{Binding Ho_Ten}"></GridViewColumn>
+                                <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding Ngay_Sinh}"></GridViewColumn>
+                                <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding SDT}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
         </Grid>
     </Grid>
 </Window>
