@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
         xmlns:local="clr-namespace:QuanLiNhaTu.Views"
         mc:Ignorable="d"
         Title="MainThanNhan" Height="600" Width="1000"
@@ -57,6 +58,8 @@
                 <ColumnDefinition Width="184*"/>
             </Grid.ColumnDefinitions>
         </Grid>
+
+
         <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
@@ -69,7 +72,7 @@
                         <Button Content="Account" Command="{Binding Account}"/>
                         <Button Content="Help" Command="{Binding Help}"/>
                         <Separator/>
-                        <Button Content="Logout" Command="{Binding Logout}"/>
+                        <Button Content="Logout" Command="{Binding Logout}" CommandParameter="{Binding ElementName=mainThanNhan}"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
@@ -87,51 +90,55 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="579*"/>
+                        <ColumnDefinition Width="313*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
+                    <Grid Grid.Row="0" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Content="Họ tên" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Top"/>
-                        <TextBox Grid.Column="0" HorizontalAlignment="Left" Height="23" Margin="144,5,0,0" TextWrapping="Wrap" Text="{Binding Path=hoten}" VerticalAlignment="Top" Width="191"/>
+                        <TextBox Grid.Column="0" HorizontalAlignment="Left" Height="23" Margin="144,5,0,0" TextWrapping="Wrap" Text="{Binding Path=HoTen}" VerticalAlignment="Top" Width="191"/>
                         <Label Grid.Column="1" Content="Ngày vào" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Top"/>
-                        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="144,5,0,0" VerticalAlignment="Top" Width="190"/>
+                        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="144,5,0,38" VerticalAlignment="Stretch" Width="190" SelectedDate="{Binding NgayVao, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
-                    <Grid Grid.Row="1">
+                    <Grid Grid.Row="1" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Content="Ngày sinh" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Top"/>
-                        <DatePicker Grid.Column="0" HorizontalAlignment="Left" Margin="144,5,0,0" VerticalAlignment="Top" Width="190"/>
+                        <DatePicker Grid.Column="0" HorizontalAlignment="Left" Margin="144,5,0,0" VerticalAlignment="Top" Width="190" SelectedDate="{Binding NgaySinh, UpdateSourceTrigger=PropertyChanged}"/>
                         <Label Grid.Column="1" Content="Ngày ra" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Top"/>
-                        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="144,5,0,0" VerticalAlignment="Top" Width="190"/>
+                        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="144,5,0,0" VerticalAlignment="Top" Width="190" SelectedDate="{Binding NgayRa, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
-                    <Grid Grid.Row="2">
+                    <Grid Grid.Row="2" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Content="Giới tính" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Top"/>
-                        <TextBox Grid.Column="0" HorizontalAlignment="Left" Height="23" Margin="144,5,0,0" TextWrapping="Wrap" Text="{Binding Path=gioitinh}" VerticalAlignment="Top" Width="191"/>
+                        <TextBox Grid.Column="0" HorizontalAlignment="Left" Margin="144,5,0,40" TextWrapping="Wrap" Text="{Binding Path=GioiTinh}" Width="191"/>
                         <Label Grid.Column="1" Content="Ngày thăm nuôi" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Top"/>
-                        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="144,5,0,0" VerticalAlignment="Top" Width="190"/>
+                        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="144,5,0,0" VerticalAlignment="Top" Width="190" SelectedDate="{Binding NgayThamNuoi, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
-                    <Grid Grid.Row="3">
+                    <Grid Grid.Row="3" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Content="Sức khỏe" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Top"/>
-                        <TextBox Grid.Column="0" HorizontalAlignment="Left" Height="23" Margin="144,5,0,0" TextWrapping="Wrap" Text="{Binding Path=suckhoe}" VerticalAlignment="Top" Width="191"/>
+                        <TextBox Grid.Column="0" HorizontalAlignment="Left" Height="23" Margin="144,5,0,0" TextWrapping="Wrap" Text="{Binding Path=SucKhoe}" VerticalAlignment="Top" Width="191"/>
                         <Label Grid.Column="1" Content="Mức độ cải tạo" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Top"/>
-                        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="144,5,0,0" TextWrapping="Wrap" Text="{Binding Path=mucdocaitao}" VerticalAlignment="Top" Width="191"/>
+                        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="144,5,0,0" TextWrapping="Wrap" Text="{Binding Path=MucDoCaiTao}" VerticalAlignment="Top" Width="191"/>
                     </Grid>
                 </Grid>
                 <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
@@ -189,7 +196,7 @@
                     <ListViewItem x:Name="ItemHome" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Đổi mật khẩu" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemCreate" Height="60">

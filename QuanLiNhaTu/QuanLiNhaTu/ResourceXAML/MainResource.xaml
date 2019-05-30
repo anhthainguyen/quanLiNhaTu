@@ -4,7 +4,10 @@
                     xmlns:viewmodel="clr-namespace:QuanLiNhaTu.ViewModels">
     <viewmodel:MainWindowViewModel x:Key="MainVM"></viewmodel:MainWindowViewModel>
     <viewmodel:LoginWindowViewModel x:Key="LoginVM"></viewmodel:LoginWindowViewModel>
-    <viewmodel:ThanNhanViewModel x:Key="ThanNhanVM"></viewmodel:ThanNhanViewModel>
+    <viewmodel:MainQuanLyViewModel x:Key="MainQuanLyVM"></viewmodel:MainQuanLyViewModel>
     <viewmodel:MainThanNhanViewModel x:Key="MainThanNhanVM"></viewmodel:MainThanNhanViewModel>
+    <viewmodel:ChiaLichTrucViewModel x:Key="ChiaLichTrucVM"></viewmodel:ChiaLichTrucViewModel>
     <viewmodel:TuNhanViewModel x:Key="TuNhanVM"></viewmodel:TuNhanViewModel>
+    <viewmodel:DoiMatKhauViewModel x:Key="DoiMatKhauVM"></viewmodel:DoiMatKhauViewModel>
+    <viewmodel:ThanNhanViewModel x:Key="ThanNhanVM"></viewmodel:ThanNhanViewModel>
 </ResourceDictionary>
