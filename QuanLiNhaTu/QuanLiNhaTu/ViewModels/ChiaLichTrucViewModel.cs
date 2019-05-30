@@ -12,7 +12,7 @@ namespace QuanLiNhaTu.ViewModels
 {
     public class ChiaLichTrucViewModel : BaseViewModel
     {
-        public QUAN_LI_NHA_TUEntities db = new QUAN_LI_NHA_TUEntities();
+        public QUAN_LI_NHA_TUEntities1 db = new QUAN_LI_NHA_TUEntities1();
 
         private ObservableCollection<CAN_BO> _lstCanBo;
         public ObservableCollection<CAN_BO> lstCanBo { get => _lstCanBo; set { _lstCanBo = value; OnPropertyChanged(); } }
@@ -298,7 +298,7 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                using (QUAN_LI_NHA_TUEntities conn = new QUAN_LI_NHA_TUEntities())
+                using (QUAN_LI_NHA_TUEntities1 conn = new QUAN_LI_NHA_TUEntities1())
                 {
                     CAN_BO cb = new CAN_BO { Ma_CB = MaCanBo };
                     conn.CAN_BO.Add(cb);

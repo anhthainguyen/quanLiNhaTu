@@ -95,6 +95,7 @@
     <Compile Include="Models\DOT_KHAM_BENH.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DTOCanBoCongViec.cs" />
     <Compile Include="Models\KHEN_THUONG.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -128,6 +129,8 @@
     <Compile Include="UserControl_QLNT\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ChiaLichTrucViewModel.cs" />
+    <Compile Include="ViewModels\MainQuanLyViewModel.cs" />
     <Compile Include="ViewModels\QuanGiaoViewModel.cs" />
     <Compile Include="ViewModels\ControlBarViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
@@ -137,6 +140,9 @@
     <Compile Include="ViewModels\ThanNhanViewModel.cs" />
     <Compile Include="ViewModels\TiepNhanVaPhongThichViewModel.cs" />
     <Compile Include="ViewModels\TuNhanViewModel.cs" />
+    <Compile Include="Views\ChiaLichTruc.xaml.cs">
+      <DependentUpon>ChiaLichTruc.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -160,10 +166,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ChiaLichTruc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="Views\MainQuanLy.xaml.cs">
+      <DependentUpon>MainQuanLy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ManHinhChinh.xaml.cs">
       <DependentUpon>ManHinhChinh.xaml</DependentUpon>
     </Compile>
@@ -178,6 +191,9 @@
     </Compile>
     <Compile Include="Views\TiepNhanPhongTich.xaml.cs">
       <DependentUpon>TiepNhanPhongTich.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TuNhan.xaml.cs">
+      <DependentUpon>TuNhan.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\YTe.xaml.cs">
       <DependentUpon>YTe.xaml</DependentUpon>
@@ -210,6 +226,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MainQuanLy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ManHinhChinh.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -229,6 +249,10 @@
     <Page Include="Views\TiepNhanPhongTich.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TuNhan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\YTe.xaml">
       <SubType>Designer</SubType>

@@ -8,7 +8,6 @@
     <viewmodel:MainThanNhanViewModel x:Key="MainThanNhanVM"></viewmodel:MainThanNhanViewModel>
     <viewmodel:ChiaLichTrucViewModel x:Key="ChiaLichTrucVM"></viewmodel:ChiaLichTrucViewModel>
     <viewmodel:TuNhanViewModel x:Key="TuNhanVM"></viewmodel:TuNhanViewModel>
-    <viewmodel:DoiMatKhauViewModel x:Key="DoiMatKhauVM"></viewmodel:DoiMatKhauViewModel>
     <viewmodel:ThanNhanViewModel x:Key="ThanNhanVM"></viewmodel:ThanNhanViewModel>
     <viewmodel:TiepNhanVaPhongThichViewModel x:Key="TiepNhanPhongThichVM"></viewmodel:TiepNhanVaPhongThichViewModel>
     <viewmodel:QuanGiaoViewModel x:Key="QuanGiaoVM"></viewmodel:QuanGiaoViewModel>
