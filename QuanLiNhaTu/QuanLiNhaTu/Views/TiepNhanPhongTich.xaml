@@ -31,19 +31,30 @@
                         <RowDefinition Height="187*"/>
                         <RowDefinition Height="276*"/>
                     </Grid.RowDefinitions>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="130,108,0,0" TextWrapping="Wrap" Text="{Binding Ho_Ten2,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" VerticalAlignment="Top" Width="191"/>
+                    <Label Content="Mã tù nhân" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
+                    <TextBox Text="{Binding Ma_Tu_N2,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="132,74,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="191"/>
                     <Label Content="Họ tên" HorizontalAlignment="Left" Margin="28,116,0,0" VerticalAlignment="Top" Height="26" Width="45"/>
+                     <TextBox HorizontalAlignment="Left" Height="23" Margin="130,108,0,0" TextWrapping="Wrap" Text="{Binding Ho_Ten2,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" VerticalAlignment="Top" Width="191" />
                     <Label Content="Ngày sinh" HorizontalAlignment="Left" Margin="28,160,0,0" VerticalAlignment="Top" Height="25" Width="63"/>
+                    <DatePicker SelectedDate="{Binding Ngay_Sinh, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="132,143,0,0" VerticalAlignment="Top" Width="190" Height="25"/>
                     <Label Content="Giới tính" HorizontalAlignment="Left" Margin="31,11.333,0,0" VerticalAlignment="Top" Height="26" Width="56" Grid.Row="1"/>
                     <ComboBox SelectedValue="{Binding Path=Gioi_Tinh, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Margin="133,185,0,0" VerticalAlignment="Top" Width="188" Height="28" Grid.RowSpan="2">
                         <ComboBoxItem>Nam</ComboBoxItem>
                         <ComboBoxItem>Nữ</ComboBoxItem>
                     </ComboBox>
-                    <DatePicker SelectedDate="{Binding Ngay_Sinh, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="132,143,0,0" VerticalAlignment="Top" Width="190" Height="25"/>
+                    <Label Content="Tội danh" HorizontalAlignment="Left" Margin="28,47.333,0,0" VerticalAlignment="Top" Height="26" Width="56" Grid.Row="1"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="129,45.333,0,0" TextWrapping="Wrap" Text="{Binding Toi_Danh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="191" Grid.Row="1"/>
                     <Label Content="Người thân" HorizontalAlignment="Left" Margin="31,86.333,0,0" VerticalAlignment="Top" Height="25" Width="69" Grid.Row="1"/>
-                    <Button Content="Quay lại" HorizontalAlignment="Left" Margin="198,215.333,0,0" VerticalAlignment="Top" Width="110" Height="32" Grid.Row="1" />
+                    <ComboBox SelectedValue="{Binding Ma_Than_Nhan, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ItemsSource="{Binding DanhsachThanNhan}" DisplayMemberPath="Ma_Than_N"   HorizontalAlignment="Left" Margin="131,79.333,0,0" VerticalAlignment="Top" Width="188" Height="28" Grid.Row="1">
+                    </ComboBox>
+                    <Label Content="Ngày vào tù" HorizontalAlignment="Left" Margin="27,121.333,0,0" VerticalAlignment="Top" Height="25" Width="76" Grid.Row="1"/>
+                    <DatePicker SelectedDate="{Binding Ngay_Vao_Tu, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="131,120.333,0,0" VerticalAlignment="Top" Width="190" Height="25" Grid.Row="1"/>
+                    <Label Content="Ngày ra tù" HorizontalAlignment="Left" Margin="32,162.333,0,0" VerticalAlignment="Top" Height="25" Width="73" Grid.Row="1"/>
+                    <DatePicker SelectedDate="{Binding Ngay_Ra_Tu, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="134,162.333,0,0" VerticalAlignment="Top" Width="186" Height="25" Grid.Row="1"/>
                     <Button Command="{Binding AddCommand}"
                                 Content="Tiếp nhận" HorizontalAlignment="Left" Margin="46,216.333,0,0" VerticalAlignment="Top" Width="110" Height="32" Grid.Row="1"/>
+                    <Button Content="Quay lại" HorizontalAlignment="Left" Margin="198,215.333,0,0" VerticalAlignment="Top" Width="110" Height="32" Grid.Row="1" />
+                   
                     <materialDesign:Card Margin="0,17,0,0">
                         <Grid Height="37">
                             <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Ma_Tu_N,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" materialDesign:HintAssist.Hint="Mã tù nhân" VerticalAlignment="Top" Width="98"  Margin="12,5,0,0"/>
@@ -51,16 +62,15 @@
                             <Button Margin="266,3,0,2" Content="Phóng thích"/>
                         </Grid>
                     </materialDesign:Card>
-                    <ComboBox SelectedValue="{Binding Ma_Than_Nhan, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ItemsSource="{Binding DanhsachThanNhan}" DisplayMemberPath="Ma_Than_N"   HorizontalAlignment="Left" Margin="131,79.333,0,0" VerticalAlignment="Top" Width="188" Height="28" Grid.Row="1">
-                    </ComboBox>
-                    <Label Content="Mã tù nhân" HorizontalAlignment="Left" Margin="30,75,0,0" VerticalAlignment="Top" Height="26" Width="74"/>
-                    <TextBox Text="{Binding Ma_Tu_N2,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Height="23" Margin="132,74,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="191"/>
-                    <Label Content="Ngày vào tù" HorizontalAlignment="Left" Margin="27,121.333,0,0" VerticalAlignment="Top" Height="25" Width="76" Grid.Row="1"/>
-                    <DatePicker SelectedDate="{Binding Ngay_Vao_Tu, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="131,120.333,0,0" VerticalAlignment="Top" Width="190" Height="25" Grid.Row="1"/>
-                    <Label Content="Ngày ra tù" HorizontalAlignment="Left" Margin="32,162.333,0,0" VerticalAlignment="Top" Height="25" Width="73" Grid.Row="1"/>
-                    <DatePicker SelectedDate="{Binding Ngay_Ra_Tu, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Left" Margin="134,162.333,0,0" VerticalAlignment="Top" Width="186" Height="25" Grid.Row="1"/>
-                    <Label Content="Tội danh" HorizontalAlignment="Left" Margin="28,47.333,0,0" VerticalAlignment="Top" Height="26" Width="56" Grid.Row="1"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="129,45.333,0,0" TextWrapping="Wrap" Text="{Binding Toi_Danh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="191" Grid.Row="1"/>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                 </Grid>
                 <Grid Grid.Column="1" >
                     <ScrollViewer VerticalScrollBarVisibility="Auto" RenderTransformOrigin="0.107,0.519">
