@@ -8,6 +8,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         Title="MainWindow" Height="450" Width="800"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:uc="clr-namespace:QuanLiNhaTu.UserControl_QLNT"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
      TextElement.FontSize="13"
@@ -25,117 +26,91 @@
                                    CommandParameter="{Binding ElementName=mainWindow}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Window.Resources>
-        <Storyboard x:Key="OpenMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="70"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="200"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-        <Storyboard x:Key="CloseMenu">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="70"/>
-            </DoubleAnimationUsingKeyFrames>
-        </Storyboard>
-    </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
-            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
-            <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
-        </EventTrigger>
-    </Window.Triggers>
-    <Grid Background="#FFDEDEDE">
-        <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="540" Width="1010">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="219*"/>
-                <ColumnDefinition Width="115*"/>
-                <ColumnDefinition Width="492*"/>
-                <ColumnDefinition Width="184*"/>
-            </Grid.ColumnDefinitions>
-            <Button Command="{Binding MoThanNhanCommand}"
-                    CommandParameter="{Binding ElementName=mainWindow}"
-                    Content="Than Nhan" Grid.Column="2" HorizontalAlignment="Left" Margin="33,243,0,0" VerticalAlignment="Top" Width="224"/>
-            <Button Command="{Binding MoTiepNhanPhongThichCommand}"
-                   CommandParameter="{Binding ElementName=mainWindow}"
-                Content="Tiếp nhận và phóng thích" Grid.Column="2" HorizontalAlignment="Left" Margin="42,308,0,0" VerticalAlignment="Top" Width="221"/>
-            <Button Command="{Binding MoCanBoCommand}"
-                CommandParameter="{Binding ElementName=mainWindow}"
-                Content="Can Bo" Grid.Column="2" HorizontalAlignment="Left" Margin="33,186,0,0" VerticalAlignment="Top" Width="224"/>
-            <Button Command="{Binding MoQuanLyCommand}" CommandParameter="{Binding ElementName=mainWindow}"  Content="Quản lý" Grid.Column="2" HorizontalAlignment="Left" Margin="32,379,0,0" VerticalAlignment="Top" Width="231"/>
-        </Grid>
-        <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
-            </Grid.Effect>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Abel Dutra" VerticalAlignment="Center" FontSize="16"/>
-                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
-                    <StackPanel Width="150">
-                        <Button Content="Settings"/>
-                        <Button Content="Account"/>
-                        <Button Content="Help"/>
-                        <Separator/>
-                        <Button Content="Logout"/>
-                    </StackPanel>
-                </materialDesign:PopupBox>
-            </StackPanel>
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">DANH SÁCH TÙ NHÂN</TextBlock>
-        </Grid>
-        <Grid x:Name="GridMenu" Width="70" HorizontalAlignment="Left" Background="#FF31577E">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Color="#FFAEAEAE"/>
-            </Grid.Effect>
-            <StackPanel>
-                <Grid Height="150" Background="White" RenderTransformOrigin="0.5,0.5">
-                    <Grid.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Grid.RenderTransform>
-                    <Button x:Name="ButtonOpenMenu" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonOpenMenu_Click" >
-                        <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
-                    </Button>
-                    <Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" Width="60" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF31577E" Click="ButtonCloseMenu_Click" >
-                        <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
-                    </Button>
-                    <Button>
-                        <materialDesign:PackIcon Kind="AccountCircle" Width="50" Height="50"/>
-                    </Button>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-                </Grid>
-                <ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem x:Name="ItemHome" Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem x:Name="ItemCreate" Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Pencil" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Create" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Ticket" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Tickets" VerticalAlignment="Center"  Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Message" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Messages" VerticalAlignment="Center"  Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=thanNhan}"></uc:ControlBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Image Source="/Picture/JailLogo.JPG"  Width="auto" VerticalAlignment="Top"/>
+            </Grid>
+            <StackPanel Grid.Row="1">
+                <Button Margin="10" Background="#FF2281D1" 
+                        Command="{Binding MoQuanLyCommand}"
+                        CommandParameter="{Binding ElementName=mainWindow}">
+                    <Grid Width="200">
+                        <materialDesign:PackIcon Kind="BookOpenOutline" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Quản lý" FontFamily="Century"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#FF2281D1"
+                        Command="{Binding MoCanBoCommand}"
+                        CommandParameter="{Binding ElementName=mainWindow}">
+                    <Grid Width="200">
+                        <materialDesign:PackIcon Kind="AccountStar" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Cán bộ" FontFamily="Century"/>
+                    </Grid>
+                </Button>
+                
+                <Button Margin="10" Background="#FF2281D1"
+                        Command="{Binding MoThanNhanCommand}"
+                        CommandParameter="{Binding ElementName=mainWindow}">
+                    <Grid Width="200">
+                        <materialDesign:PackIcon Kind="Accessibility" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Thân nhân" FontFamily="Century"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#FF2281D1">
+                    <Grid Width="200">
+                        <materialDesign:PackIcon Kind="Accessibility" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Tù nhân" FontFamily="Century"/>
+                    </Grid>
+                </Button>
+                
+                <Button Margin="10" Background="#FF2281D1"
+                        Command="{Binding MoTiepNhanPhongThichCommand}"
+                        CommandParameter="{Binding ElementName=mainWindow}">
+                    <Grid Width="200">
+                        <materialDesign:PackIcon Kind="Accessibility" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Tiếp nhận và phóng thích" FontFamily="Century" FontSize="12" Width="139"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#FF2281D1"
+                        Command="{Binding MoChiaLichTrucCommand}"
+                        CommandParameter="{Binding ElementName=mainWindow}">
+                    <Grid Width="200">
+                        <materialDesign:PackIcon Kind="Calendar" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Lịch trực" FontFamily="Century"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#FF2281D1"
+                        Command="{Binding LogOutCommand}"
+                        CommandParameter="{Binding ElementName=mainWindow}">
+                    <Grid Width="200">
+                        <materialDesign:PackIcon Kind="Logout" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Đăng xuất" FontFamily="Century"/>
+                    </Grid>
+                </Button>
             </StackPanel>
         </Grid>
+        
+
     </Grid>
 </Window>
