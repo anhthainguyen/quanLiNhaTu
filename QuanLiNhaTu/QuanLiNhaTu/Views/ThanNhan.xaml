@@ -17,7 +17,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         DataContext="{StaticResource ThanNhanVM}"
-        ResizeMode="NoResize" WindowState="Maximized"
+        ResizeMode="NoResize"
         WindowStyle="None"
          Name="thanNhan"
         WindowState="Maximized">
