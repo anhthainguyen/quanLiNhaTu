@@ -18,6 +18,7 @@ namespace QuanLiNhaTu.ViewModels
         public ICommand MoCanBoCommand { get; set; }
         public ICommand MoQuanLyCommand { get; set; }
         public ICommand MoChiaLichTrucCommand { get; set; }
+        public ICommand LogOutCommand { get; set; }
         public MainWindowViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
@@ -50,6 +51,12 @@ namespace QuanLiNhaTu.ViewModels
             {
                 ChiaLichTruc ChiaLich = new ChiaLichTruc();
                 ChiaLich.ShowDialog();
+            });
+            LogOutCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                p.Hide();
+                LoginWindow logInWin = new LoginWindow();
+                logInWin.Show();
             });
         }
     }
