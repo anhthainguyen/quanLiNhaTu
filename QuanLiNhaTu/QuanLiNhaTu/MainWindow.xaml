@@ -61,6 +61,9 @@
             <Button Command="{Binding MoTiepNhanPhongThichCommand}"
                    CommandParameter="{Binding ElementName=mainWindow}"
                 Content="Tiếp nhận và phóng thích" Grid.Column="2" HorizontalAlignment="Left" Margin="42,308,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Command="{Binding MoCanBoCommand}"
+                CommandParameter="{Binding ElementName=mainWindow}"
+                Content="Can Bo" Grid.Column="2" HorizontalAlignment="Left" Margin="33,186,0,0" VerticalAlignment="Top" Width="224"/>
         </Grid>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
             <Grid.Effect>

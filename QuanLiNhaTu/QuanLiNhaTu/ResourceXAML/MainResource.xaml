@@ -8,4 +8,5 @@
     <viewmodel:MainThanNhanViewModel x:Key="MainThanNhanVM"></viewmodel:MainThanNhanViewModel>
     <viewmodel:TuNhanViewModel x:Key="TuNhanVM"></viewmodel:TuNhanViewModel>
     <viewmodel:TiepNhanVaPhongThichViewModel x:Key="TiepNhanPhongThichVM"></viewmodel:TiepNhanVaPhongThichViewModel>
+    <viewmodel:QuanGiaoViewModel x:Key="QuanGiaoVM"></viewmodel:QuanGiaoViewModel>
 </ResourceDictionary>
