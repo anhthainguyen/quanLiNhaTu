@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows;
 
 namespace QuanLiNhaTu.ViewModels
 {
@@ -159,23 +160,31 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = new CAN_BO()
+                try
                 {
-                    Ma_CB = MaCanBo
-                    ,
-                    Ho_Ten = _HoTen
-                    ,
-                    SDT = SDT
-                    ,
-                    Ngay_Sinh = NgaySinh
-                    ,
-                    Ma_BP = SelectedBoPhan.Ma_BP
-                };
-                db.CAN_BO.Add(tn);
-                if (db.SaveChanges() == 1)
-                {
-                    lstCanBo.Add(tn);
+                    var tn = new CAN_BO()
+                    {
+                        Ma_CB = MaCanBo
+                        ,
+                        Ho_Ten = _HoTen
+                        ,
+                        SDT = SDT
+                        ,
+                        Ngay_Sinh = NgaySinh
+                        ,
+                        Ma_BP = SelectedBoPhan.Ma_BP
+                    };
+                    db.CAN_BO.Add(tn);
+                    if (db.SaveChanges() == 1)
+                    {
+                        lstCanBo.Add(tn);
+                    }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
             });
 
             EditCommand = new RelayCommand<object>((p) =>
@@ -193,15 +202,22 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = db.CAN_BO.Where(x => x.Ma_CB == SelectedItemCanBo.Ma_CB).SingleOrDefault();
-                tn.Ma_CB = MaCanBo;
-                tn.Ho_Ten = HoTen;
-                tn.SDT = SDT;
-                tn.Ngay_Sinh = NgaySinh;
-                tn.Ma_BP = SelectedBoPhan.Ma_BP;
-                if (db.SaveChanges() == 1)
+                try
                 {
-                    lstCanBo = new ObservableCollection<CAN_BO>(db.CAN_BO);
+                    var tn = db.CAN_BO.Where(x => x.Ma_CB == SelectedItemCanBo.Ma_CB).SingleOrDefault();
+                    tn.Ma_CB = MaCanBo;
+                    tn.Ho_Ten = HoTen;
+                    tn.SDT = SDT;
+                    tn.Ngay_Sinh = NgaySinh;
+                    tn.Ma_BP = SelectedBoPhan.Ma_BP;
+                    if (db.SaveChanges() == 1)
+                    {
+                        lstCanBo = new ObservableCollection<CAN_BO>(db.CAN_BO);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
 
@@ -213,12 +229,19 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = db.CAN_BO.Where(x => x.Ma_CB == SelectedItemCanBo.Ma_CB).SingleOrDefault();
-
-                db.CAN_BO.Remove(tn);
-                if (db.SaveChanges() == 1)
+                try
                 {
-                    lstCanBo.Remove(tn);
+                    var tn = db.CAN_BO.Where(x => x.Ma_CB == SelectedItemCanBo.Ma_CB).SingleOrDefault();
+
+                    db.CAN_BO.Remove(tn);
+                    if (db.SaveChanges() == 1)
+                    {
+                        lstCanBo.Remove(tn);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
             #endregion
@@ -235,16 +258,23 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = new CONG_VIEC()
+                try
                 {
-                    Ma_CV = MaCongViec
-                    ,
-                    Ten_CV = TenCongViec
-                };
-                db.CONG_VIEC.Add(tn);
-                if (db.SaveChanges() == 1)
+                    var tn = new CONG_VIEC()
+                    {
+                        Ma_CV = MaCongViec
+                        ,
+                        Ten_CV = TenCongViec
+                    };
+                    db.CONG_VIEC.Add(tn);
+                    if (db.SaveChanges() == 1)
+                    {
+                        lstCongViec.Add(tn);
+                    }
+                }
+                catch (Exception ex)
                 {
-                    lstCongViec.Add(tn);
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
 
@@ -261,12 +291,19 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = db.CONG_VIEC.Where(x => x.Ma_CV == SelectedItemCongViec.Ma_CV).SingleOrDefault();
-                tn.Ma_CV = MaCongViec;
-                tn.Ten_CV = TenCongViec;
-                if (db.SaveChanges() == 1)
+                try
                 {
-                    lstCongViec = new ObservableCollection<CONG_VIEC>(db.CONG_VIEC);
+                    var tn = db.CONG_VIEC.Where(x => x.Ma_CV == SelectedItemCongViec.Ma_CV).SingleOrDefault();
+                    tn.Ma_CV = MaCongViec;
+                    tn.Ten_CV = TenCongViec;
+                    if (db.SaveChanges() == 1)
+                    {
+                        lstCongViec = new ObservableCollection<CONG_VIEC>(db.CONG_VIEC);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
 
@@ -278,12 +315,19 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = db.CONG_VIEC.Where(x => x.Ma_CV == SelectedItemCongViec.Ma_CV).SingleOrDefault();
-
-                db.CONG_VIEC.Remove(tn);
-                if (db.SaveChanges() == 1)
+                try
                 {
-                    lstCongViec.Remove(tn);
+                    var tn = db.CONG_VIEC.Where(x => x.Ma_CV == SelectedItemCongViec.Ma_CV).SingleOrDefault();
+
+                    db.CONG_VIEC.Remove(tn);
+                    if (db.SaveChanges() == 1)
+                    {
+                        lstCongViec.Remove(tn);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
             #endregion
@@ -298,19 +342,26 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                using (QUAN_LI_NHA_TUEntities1 conn = new QUAN_LI_NHA_TUEntities1())
+                try
                 {
-                    CAN_BO cb = new CAN_BO { Ma_CB = MaCanBo };
-                    conn.CAN_BO.Add(cb);
-                    conn.CAN_BO.Attach(cb);
-                    CONG_VIEC cv = new CONG_VIEC { Ma_CV = MaCongViec };
-                    conn.CONG_VIEC.Add(cv);
-                    conn.CONG_VIEC.Attach(cv);
-                    cb.CONG_VIEC.Add(cv);
-                    if (conn.SaveChanges() == 1)
+                    using (QUAN_LI_NHA_TUEntities1 conn = new QUAN_LI_NHA_TUEntities1())
                     {
-                        Binding_CanBo_CongViec();
+                        CAN_BO cb = new CAN_BO { Ma_CB = MaCanBo };
+                        conn.CAN_BO.Add(cb);
+                        conn.CAN_BO.Attach(cb);
+                        CONG_VIEC cv = new CONG_VIEC { Ma_CV = MaCongViec };
+                        conn.CONG_VIEC.Add(cv);
+                        conn.CONG_VIEC.Attach(cv);
+                        cb.CONG_VIEC.Add(cv);
+                        if (conn.SaveChanges() == 1)
+                        {
+                            Binding_CanBo_CongViec();
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
 
@@ -322,13 +373,20 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var cb = db.CAN_BO.FirstOrDefault(e => e.Ma_CB == MaCanBo);
-                var cv = db.CONG_VIEC.FirstOrDefault(s => s.Ma_CV == Ma);
-                //cb.CONG_VIEC.Remove(cv);
-                cv.CAN_BO.Remove(cb);
-                if (db.SaveChanges() == 1)
+                try
                 {
-                    Binding_CanBo_CongViec();
+                    var cb = db.CAN_BO.FirstOrDefault(e => e.Ma_CB == MaCanBo);
+                    var cv = db.CONG_VIEC.FirstOrDefault(s => s.Ma_CV == Ma);
+                    //cb.CONG_VIEC.Remove(cv);
+                    cv.CAN_BO.Remove(cb);
+                    if (db.SaveChanges() == 1)
+                    {
+                        Binding_CanBo_CongViec();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
             #endregion

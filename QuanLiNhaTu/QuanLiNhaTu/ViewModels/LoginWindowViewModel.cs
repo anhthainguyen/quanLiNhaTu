@@ -30,44 +30,58 @@ namespace QuanLiNhaTu.ViewModels
 
         public LoginWindowViewModel()
         {
-            IsLogin = false;
-            Password = "";
-            UserName = "";
-
-            CloseCommand = new RelayCommand<Window>((p) => { return p == null? false : true; }, (p) => { p.Close(); });
-            LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
-            PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
-            ChangePasswordCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            try
             {
-                DoiMatKhau change = new DoiMatKhau();
-                change.ShowDialog();
-            });
+                IsLogin = false;
+                Password = "";
+                UserName = "";
+
+                CloseCommand = new RelayCommand<Window>((p) => { return p == null ? false : true; }, (p) => { p.Close(); });
+                LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
+                PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
+                ChangePasswordCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+                {
+                    DoiMatKhau change = new DoiMatKhau();
+                    change.ShowDialog();
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
         void Login(Window p)
         {
-            if (p == null)
-                return;
-            string passEncode = MD5Hash(Base64Encode(Password));
-            var accCount = db.CAN_BO.Where(x => x.Ma_CB == UserName && x.Mat_Khau == passEncode).Count();
-            var accCount2 = db.TU_NHAN.Where(x => x.Ma_Tu_N == UserName && x.Mat_Khau == passEncode).Count();
-            if (accCount > 0)
+            try
             {
-                IsLogin = true;
-                MainWindow mainWindow = new MainWindow();
-                p.Close();
-                mainWindow.ShowDialog();
+                if (p == null)
+                    return;
+                string passEncode = MD5Hash(Base64Encode(Password));
+                var accCount = db.CAN_BO.Where(x => x.Ma_CB == UserName && x.Mat_Khau == passEncode).Count();
+                var accCount2 = db.TU_NHAN.Where(x => x.Ma_Tu_N == UserName && x.Mat_Khau == passEncode).Count();
+                if (accCount > 0)
+                {
+                    IsLogin = true;
+                    MainWindow mainWindow = new MainWindow();
+                    p.Close();
+                    mainWindow.ShowDialog();
+                }
+                else if (accCount2 > 0)
+                {
+                    IsLogin = true;
+                    ThanNhan thanNhan = new ThanNhan();
+                    p.Close();
+                    thanNhan.ShowDialog();
+                }
+                else
+                {
+                    IsLogin = false;
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+                }
             }
-            else if (accCount2 > 0)
+            catch (Exception ex)
             {
-                IsLogin = true;
-                ThanNhan thanNhan = new ThanNhan();
-                p.Close();
-                thanNhan.ShowDialog();
-            }
-            else
-            {
-                IsLogin = false;
-                MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+                MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

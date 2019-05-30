@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using QuanLiNhaTu.Models;
 using System.Windows.Input;
+using System.Windows;
 
 namespace QuanLiNhaTu.ViewModels
 {
@@ -22,15 +23,22 @@ namespace QuanLiNhaTu.ViewModels
             get => _SelectedItem;
             set
             {
-                _SelectedItem = value;
-                OnPropertyChanged();
-                if (SelectedItem != null)
+                try
                 {
-                    MaThanNhan = SelectedItem.Ma_Than_N;
-                    HoTen = SelectedItem.Ho_Ten;
-                    GioiTinh = SelectedItem.Gioi_Tinh;
-                    NgaySinh = SelectedItem.Ngay_Sinh;
-                    SDT = SelectedItem.SDT;
+                    _SelectedItem = value;
+                    OnPropertyChanged();
+                    if (SelectedItem != null)
+                    {
+                        MaThanNhan = SelectedItem.Ma_Than_N;
+                        HoTen = SelectedItem.Ho_Ten;
+                        GioiTinh = SelectedItem.Gioi_Tinh;
+                        NgaySinh = SelectedItem.Ngay_Sinh;
+                        SDT = SelectedItem.SDT;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }
@@ -64,12 +72,19 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = new THAN_NHAN() { Ma_Than_N = MaThanNhan, Ho_Ten = _HoTen, Gioi_Tinh = GioiTinh, Ngay_Sinh = NgaySinh, SDT = SDT };
+                try
+                {
+                    var tn = new THAN_NHAN() { Ma_Than_N = MaThanNhan, Ho_Ten = _HoTen, Gioi_Tinh = GioiTinh, Ngay_Sinh = NgaySinh, SDT = SDT };
 
-                db.THAN_NHAN.Add(tn);
-                db.SaveChanges();
+                    db.THAN_NHAN.Add(tn);
+                    db.SaveChanges();
 
-                List.Add(tn);
+                    List.Add(tn);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
 
             EditCommand = new RelayCommand<object>((p) =>
@@ -85,15 +100,22 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = db.THAN_NHAN.Where(x => x.Ma_Than_N == SelectedItem.Ma_Than_N).SingleOrDefault();
-                tn.Ma_Than_N = MaThanNhan;
-                tn.Ho_Ten = HoTen;
-                tn.Gioi_Tinh = GioiTinh;
-                tn.Ngay_Sinh = NgaySinh;
-                tn.SDT = SDT;
-                if (db.SaveChanges() == 1)
+                try
                 {
-                    List = new ObservableCollection<THAN_NHAN>(db.THAN_NHAN);
+                    var tn = db.THAN_NHAN.Where(x => x.Ma_Than_N == SelectedItem.Ma_Than_N).SingleOrDefault();
+                    tn.Ma_Than_N = MaThanNhan;
+                    tn.Ho_Ten = HoTen;
+                    tn.Gioi_Tinh = GioiTinh;
+                    tn.Ngay_Sinh = NgaySinh;
+                    tn.SDT = SDT;
+                    if (db.SaveChanges() == 1)
+                    {
+                        List = new ObservableCollection<THAN_NHAN>(db.THAN_NHAN);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
 
@@ -105,12 +127,19 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = db.THAN_NHAN.Where(x => x.Ma_Than_N == SelectedItem.Ma_Than_N).SingleOrDefault();
-
-                db.THAN_NHAN.Remove(tn);
-                if (db.SaveChanges() == 1)
+                try
                 {
-                    List.Remove(tn);
+                    var tn = db.THAN_NHAN.Where(x => x.Ma_Than_N == SelectedItem.Ma_Than_N).SingleOrDefault();
+
+                    db.THAN_NHAN.Remove(tn);
+                    if (db.SaveChanges() == 1)
+                    {
+                        List.Remove(tn);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             });
         }

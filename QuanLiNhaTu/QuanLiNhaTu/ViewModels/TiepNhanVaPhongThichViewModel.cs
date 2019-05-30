@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace QuanLiNhaTu.ViewModels
@@ -28,13 +29,20 @@ namespace QuanLiNhaTu.ViewModels
             get => _SelectedItem;
             set
             {
-                _SelectedItem = value;
-                OnPropertyChanged();
-                if (SelectedItem != null)
+                try
                 {
-                    Ma_Tu_N = SelectedItem.Ma_Tu_N;
-                    Ho_Ten = SelectedItem.Ho_Ten;
-                   
+                    _SelectedItem = value;
+                    OnPropertyChanged();
+                    if (SelectedItem != null)
+                    {
+                        Ma_Tu_N = SelectedItem.Ma_Tu_N;
+                        Ho_Ten = SelectedItem.Ho_Ten;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }
@@ -90,23 +98,30 @@ namespace QuanLiNhaTu.ViewModels
 
             }, (p) =>
             {
-                var tn = new TU_NHAN()
+                try
                 {
-                    Ma_Tu_N = _Ma_Tu_N,
-                    Ho_Ten = _Ho_Ten,
-                    Ngay_Sinh = _Ngay_Sinh,
-                    Gioi_Tinh=_Gioi_Tinh,
-                    //Toi_Danh=_Toi_Danh,
-                    //Ngay_Vao_Tu=_Ngay_Vao_Tu,
-                    //Ngay_Ra_Tu=_Ngay_Ra_Tu,
-                    //Mat_Khau= "6fd742a61bd034804c00c49b18045020",
-                    //Ma_Than_N=_Ma_Than_Nhan
-                };
+                    var tn = new TU_NHAN()
+                    {
+                        Ma_Tu_N = _Ma_Tu_N,
+                        Ho_Ten = _Ho_Ten,
+                        Ngay_Sinh = _Ngay_Sinh,
+                        Gioi_Tinh = _Gioi_Tinh,
+                        //Toi_Danh=_Toi_Danh,
+                        //Ngay_Vao_Tu=_Ngay_Vao_Tu,
+                        //Ngay_Ra_Tu=_Ngay_Ra_Tu,
+                        //Mat_Khau= "6fd742a61bd034804c00c49b18045020",
+                        //Ma_Than_N=_Ma_Than_Nhan
+                    };
 
-                db.TU_NHAN.Add(tn);
-                db.SaveChanges();
+                    db.TU_NHAN.Add(tn);
+                    db.SaveChanges();
 
-                List.Add(tn);
+                    List.Add(tn);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             });
         }
     }
