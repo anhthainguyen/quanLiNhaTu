@@ -146,16 +146,16 @@
                         <ListView ItemsSource="{Binding List, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Họ tên" DisplayMemberBinding="{Binding Ho_Ten}"></GridViewColumn>
+                                    <GridViewColumn Header="Họ tên " DisplayMemberBinding="{Binding Ho_Ten}"></GridViewColumn>
                                     <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding Ngay_Sinh, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
                                     <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding Gioi_Tinh}"></GridViewColumn>
                                     <GridViewColumn Header="Tội danh" DisplayMemberBinding="{Binding Toi_Danh}"></GridViewColumn>
                                     <GridViewColumn Header="Ngày vào tù" DisplayMemberBinding="{Binding Ngay_Vao_Tu, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
                                     <GridViewColumn Header="Ngày ra tù" DisplayMemberBinding="{Binding Ngay_Ra_Tu, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
-                                    <GridViewColumn Header="TT sức khỏe" DisplayMemberBinding="{Binding Tinh_Trang_suc_Khoe}"></GridViewColumn>
+                                    <GridViewColumn Header="Thông tin sức khỏe" DisplayMemberBinding="{Binding Tinh_Trang_suc_Khoe}"></GridViewColumn>
                                     <GridViewColumn Header="Ngày thăm nuôi" DisplayMemberBinding="{Binding Ngay_Duoc_Tham_Nuoi, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
                                     <GridViewColumn Header="Mức độ cải tạo" DisplayMemberBinding="{Binding Muc_Do_Cai_Tao}"></GridViewColumn>
-                                    <GridViewColumn Header="TT giam giữ" DisplayMemberBinding="{Binding Tinh_Trang_Giam_Giu}"></GridViewColumn>
+                                    <GridViewColumn Header="Tình trạng giam giữ" DisplayMemberBinding="{Binding Tinh_Trang_Giam_Giu}"></GridViewColumn>
                                     <GridViewColumn Header="Ngày khám" DisplayMemberBinding="{Binding Ngay_Kham, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
                                     <GridViewColumn Header="Ngày tái khám" DisplayMemberBinding="{Binding Ngay_Tai_Kham, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
                                 </GridView>
@@ -196,7 +196,7 @@
                     <ListViewItem x:Name="ItemHome" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Đổi mật khẩu" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Äá»•i máº­t kháº©u" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem x:Name="ItemCreate" Height="60">

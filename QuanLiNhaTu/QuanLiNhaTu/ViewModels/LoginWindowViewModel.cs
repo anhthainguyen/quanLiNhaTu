@@ -18,7 +18,7 @@ namespace QuanLiNhaTu.ViewModels
     {
         public QUAN_LI_NHA_TUEntities1 db = new QUAN_LI_NHA_TUEntities1();
         public bool IsLogin { get; set; }
-        private string _UserName;
+        public static string _UserName;
         public string UserName { get => _UserName; set { _UserName = value; OnPropertyChanged(); } }
         public string Password;
         #region commands
@@ -58,7 +58,7 @@ namespace QuanLiNhaTu.ViewModels
                     return;
                 string passEncode = MD5Hash(Base64Encode(Password));
                 var accCount = db.CAN_BO.Where(x => x.Ma_CB == UserName && x.Mat_Khau == passEncode).Count();
-                var accCount2 = db.TU_NHAN.Where(x => x.Ma_Tu_N == UserName && x.Mat_Khau == passEncode).Count();
+                var accCount2 = db.THAN_NHAN.Where(x => x.Ma_Than_N == UserName && x.Mat_Khau == passEncode).Count();
                 if (accCount > 0)
                 {
                     IsLogin = true;
@@ -69,7 +69,7 @@ namespace QuanLiNhaTu.ViewModels
                 else if (accCount2 > 0)
                 {
                     IsLogin = true;
-                    ThanNhan thanNhan = new ThanNhan();
+                    MainThanNhan thanNhan = new MainThanNhan();
                     p.Close();
                     thanNhan.ShowDialog();
                 }

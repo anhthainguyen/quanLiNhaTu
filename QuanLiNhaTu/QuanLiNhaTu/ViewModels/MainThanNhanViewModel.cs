@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using QuanLiNhaTu.Models;
-using System.Windows.Input;
 using System.Windows;
+using System.Windows.Input;
+using QuanLiNhaTu.ViewModels;
 
 namespace QuanLiNhaTu.ViewModels
 {
@@ -23,149 +24,76 @@ namespace QuanLiNhaTu.ViewModels
             get => _SelectedItem;
             set
             {
-                try
+                _SelectedItem = value;
+                OnPropertyChanged();
+                if (SelectedItem != null)
                 {
-                    _SelectedItem = value;
-                    OnPropertyChanged();
-                    if (SelectedItem != null)
-                    {
-                        MaTuNhan = SelectedItem.Ma_Tu_N;
-                        HoTen = SelectedItem.Ho_Ten;
-                        GioiTinh = SelectedItem.Gioi_Tinh;
-                        NgaySinh = SelectedItem.Ngay_Sinh;
-                        SucKhoe = SelectedItem.Tinh_Trang_suc_Khoe;
-                        NgayVao = SelectedItem.Ngay_Vao_Tu;
-                        NgayRa = SelectedItem.Ngay_Ra_Tu;
-                        NgayThamNuoi = SelectedItem.Ngay_Duoc_Tham_Nuoi;
-                        MucDoCaiTao = SelectedItem.Muc_Do_Cai_Tao;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MaTuNhan = SelectedItem.Ma_Tu_N;
+                    HoTen = SelectedItem.Ho_Ten;
+                    GioiTinh = SelectedItem.Gioi_Tinh;
+                    NgaySinh = SelectedItem.Ngay_Sinh;
+                    SucKhoe = SelectedItem.Tinh_Trang_suc_Khoe;
+                    NgayVao = SelectedItem.Ngay_Vao_Tu;
+                    NgayRa = SelectedItem.Ngay_Ra_Tu;
+                    NgayThamNuoi = SelectedItem.Ngay_Duoc_Tham_Nuoi;
+                    MucDoCaiTao = SelectedItem.Muc_Do_Cai_Tao;
                 }
             }
         }
         private string _MaThanNhan;
-        public string MaThanNhan { get => _MaThanNhan; set {
-                try
-                {
-                    _MaThanNhan = value; OnPropertyChanged();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            } }
+        public string MaThanNhan { get => _MaThanNhan; set { _MaThanNhan = value; OnPropertyChanged(); } }
 
         private string _HoTen;
 
         public string MaTuNhan { get; private set; }
 
-        public string HoTen { get => _HoTen; set { try
-                {
-                    _HoTen = value; OnPropertyChanged();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            } }
+        public string HoTen { get => _HoTen; set { _HoTen = value; OnPropertyChanged(); } }
 
         private string _GioiTinh;
-        public string GioiTinh { get => _GioiTinh; set { try
-                {
-                    _GioiTinh = value; OnPropertyChanged();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            } }
+        public string GioiTinh { get => _GioiTinh; set { _GioiTinh = value; OnPropertyChanged(); } }
 
         private DateTime? _NgaySinh;
-        public DateTime? NgaySinh { get => _NgaySinh; set { try
-                {
-                    _NgaySinh = value; OnPropertyChanged();
-                }
-                                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }} }
+        public DateTime? NgaySinh { get => _NgaySinh; set { _NgaySinh = value; OnPropertyChanged(); } }
 
         private string _SucKhoe;
-        public string SucKhoe { get => _SucKhoe; set { try { _SucKhoe = value; OnPropertyChanged(); }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            } }
+        public string SucKhoe { get => _SucKhoe; set { _SucKhoe = value; OnPropertyChanged(); } }
         public DateTime? _NgayVao { get; private set; }
-        public DateTime? NgayVao { get => _NgayVao; set { try { _NgayVao = value; OnPropertyChanged(); }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            } }
+        public DateTime? NgayVao { get => _NgayVao; set { _NgayVao = value; OnPropertyChanged(); } }
         public DateTime? _NgayRa { get; private set; }
-        public DateTime? NgayRa { get => _NgayRa; set { try { _NgayRa = value; OnPropertyChanged(); }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            } }
+        public DateTime? NgayRa { get => _NgayRa; set { _NgayRa = value; OnPropertyChanged(); } }
         public DateTime? _NgayThamNuoi { get; private set; }
-        public DateTime? NgayThamNuoi { get => _NgayThamNuoi; set { try { _NgayThamNuoi = value; OnPropertyChanged(); }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            } }
+        public DateTime? NgayThamNuoi { get => _NgayThamNuoi; set { _NgayThamNuoi = value; OnPropertyChanged(); } }
         public string _MucDoCaiTao { get; private set; }
-        public string MucDoCaiTao { get => _MucDoCaiTao; set { try { _MucDoCaiTao = value; OnPropertyChanged(); }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            } }
+        public string MucDoCaiTao { get => _MucDoCaiTao; set { _MucDoCaiTao = value; OnPropertyChanged(); } }
         private string _SDT;
-        public string SDT { get => _SDT; set { try { _SDT = value; OnPropertyChanged(); }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            } }
+        public string SDT { get => _SDT; set { _SDT = value; OnPropertyChanged(); } }
+
+        private string MaThanNhanN = LoginWindowViewModel._UserName;
 
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
-
+        public ICommand Logout { get; set; }
         public MainThanNhanViewModel()
         {
-            List = new ObservableCollection<TU_NHAN>(db.TU_NHAN);
+            Logout = new RelayCommand<Window>((p) => { return p == null ? false : true; }, (p) => { ShowForm(p); });
+            List = new ObservableCollection<TU_NHAN>(db.TU_NHAN.Where(x => x.Ma_Than_N == MaThanNhanN));
 
-            AddCommand = new RelayCommand<object>((p) =>
-            {
-                if (MaThanNhan != null & HoTen != null)
-                    return true;
-                return false;
+            //AddCommand = new RelayCommand<object>((p) =>
+            //{
+            //    if (MaThanNhan != null & HoTen != null)
+            //        return true;
+            //    return false;
 
-            }, (p) =>
-            {
-                try
-                {
-                    var tn = new TU_NHAN() { Ho_Ten = HoTen, Ngay_Sinh = NgaySinh, Gioi_Tinh = GioiTinh, Tinh_Trang_suc_Khoe = SucKhoe, Ngay_Vao_Tu = NgayVao, Ngay_Ra_Tu = NgayRa, Ngay_Duoc_Tham_Nuoi = NgayThamNuoi, Muc_Do_Cai_Tao = MucDoCaiTao };
+            //}, (p) =>
+            //{
+            //    var tn = new TU_NHAN() {Ho_Ten = HoTen, Ngay_Sinh = NgaySinh, Gioi_Tinh = GioiTinh, Tinh_Trang_suc_Khoe=SucKhoe,Ngay_Vao_Tu=NgayVao,Ngay_Ra_Tu=NgayRa,Ngay_Duoc_Tham_Nuoi=NgayThamNuoi,Muc_Do_Cai_Tao=MucDoCaiTao};
 
-                    db.TU_NHAN.Add(tn);
-                    db.SaveChanges();
+            //    db.TU_NHAN.Add(tn);
+            //    db.SaveChanges();
 
-                    List.Add(tn);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("A handled exception just occurred: " + ex.InnerException, "Exception Sample", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-            });
+            //    List.Add(tn);
+            //});
 
             //EditCommand = new RelayCommand<object>((p) =>
             //{
@@ -185,7 +113,7 @@ namespace QuanLiNhaTu.ViewModels
             //    tn.Ho_Ten = HoTen;
             //    tn.Ngay_Sinh = NgaySinh;
             //    tn.Gioi_Tinh = GioiTinh;
-                
+
             //    tn.Tinh_Trang_suc_Khoe = SucKhoe;
             //    tn.Ngay_Vao_Tu = NgayVao;
             //    tn.Ngay_Ra_Tu= NgayRa;
@@ -213,6 +141,13 @@ namespace QuanLiNhaTu.ViewModels
             //        List.Remove(tn);
             //    }
             //});
+        }
+
+        private void ShowForm(Window p)
+        {
+            LoginWindow mainWindow = new LoginWindow();
+            p.Close();
+            mainWindow.ShowDialog();
         }
     }
 }

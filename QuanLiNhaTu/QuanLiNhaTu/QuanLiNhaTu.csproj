@@ -130,6 +130,7 @@
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ChiaLichTrucViewModel.cs" />
+    <Compile Include="ViewModels\DoiMatKhauViewModel.cs" />
     <Compile Include="ViewModels\MainQuanLyViewModel.cs" />
     <Compile Include="ViewModels\QuanGiaoViewModel.cs" />
     <Compile Include="ViewModels\ControlBarViewModel.cs" />
@@ -177,6 +178,9 @@
     </Page>
     <Compile Include="Views\MainQuanLy.xaml.cs">
       <DependentUpon>MainQuanLy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainThanNhan.xaml.cs">
+      <DependentUpon>MainThanNhan.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ManHinhChinh.xaml.cs">
       <DependentUpon>ManHinhChinh.xaml</DependentUpon>
@@ -228,6 +232,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainQuanLy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainThanNhan.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
